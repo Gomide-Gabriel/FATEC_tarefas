@@ -1,0 +1,77 @@
+body {
+    background-color: gray;
+}
+
+
+.navBar {
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.navBar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(177, 16, 16);
+}
+
+ul li {
+    float: left;
+}
+
+ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    background-color: #a95f5f;
+}
+
+.main {
+    margin-top: 30px;
+    color: white;
+}
+
+#meioPrincipal {
+    display: flex;
+    flex-direction: row;
+    min-height: 470px;
+}
+
+#fimPrincipal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 230px;
+    background-color: rgb(37, 37, 221);
+}
+
+/* sobre nó pagina */
+
+#sobreNos {
+    text-align:  center;
+    
+}
+
+#informational {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.roundbox {
+    border: 1px solid rgb(91, 91, 240);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 60px;
+    background-color:  rgb(91, 91, 240);
+}
