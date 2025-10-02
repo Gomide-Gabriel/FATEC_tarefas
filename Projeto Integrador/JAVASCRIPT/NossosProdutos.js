@@ -57,12 +57,16 @@ const listCarrossel = carrossel.children;
 /* <li> */
 const listChild = [];
 
-// atribuindo os <li>
-for (let i = 0; i < listCarrossel.length; i++){
-    listChild = listCarrossel[i];
+
+function loadImagesFunc(){
+    // atribuindo os <li>
+    for (let i = 0; i < listCarrossel.length; i++){
+        listChild = listCarrossel[i];
+    }
+
+    // atribuindo as lista nas imagens? 
+    for (let i = 0; i < listChild.length; i++){
+        listChild[i].Image = myProducts[i];
+    }
 }
 
-// atribuindo as lista nas imagens? 
-for (let i = 0; i < listChild.length; i++){
-    listChild[i].Image = myProducts[i];
-}
