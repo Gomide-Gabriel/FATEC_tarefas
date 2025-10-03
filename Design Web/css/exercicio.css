@@ -1,0 +1,13 @@
+.my-expand{
+    background-color: gray;
+    height: 260px;
+}
+
+.my-grid > div{
+    margin-top: 50px;
+    
+}
+
+.my-footer{
+    margin-top: 100px;
+}
