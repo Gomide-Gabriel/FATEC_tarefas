@@ -50,6 +50,7 @@ ul li a:hover {
    
     min-height: 230px;
     background-color: rgb(37, 37, 221);
+    max-width: auto;
 }
 
 /*  */
