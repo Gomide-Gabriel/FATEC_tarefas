@@ -48,6 +48,13 @@ const acessoryCostume = [
     {name: 'fa5', Image: './img/FM5.png'}
 ];
 
+// Objeto de animação
+
+const animateImage = [
+    {transform: 'translate(300px)'}
+]
+
+
 // todas as listas de produto
 const myProducts = [masculineCostume, feminineCostume, infantCostume, comemorativeCostume, acessoryCostume];
 
@@ -84,22 +91,26 @@ function loadImagesFunc(){
 
         imgElement.src = myProducts[0].at(i).Image;
 
-        //console.log( myProducts[0].at(0).Image);
 
         if (liChild[i]) {
-            //liChild[i].appendChild(imgElement);
-
+            
+            // atribui o elemento <img> antes do <p>
             liChild[i].insertBefore(liChild[i].appendChild(imgElement), liPara[0]);
 
         }
         else console.error("Não foi achaddo");
     }
-
-
     
 }
 
+function ChangeImage(){
+    
+}
 
+function Animation(imgObj){
+
+    imgObj.animate(animateImage);
+}
 
 function CreateImage(imgId){
     // Cria a tag de elemento  
