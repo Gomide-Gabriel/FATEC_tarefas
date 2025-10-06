@@ -165,7 +165,7 @@ ul li a:hover {
 .roundbox2 {
     border: 2px solid rgb(177, 45, 45);
     border-radius: 20px;
-    background-color: black;
+    background-color: rgb(243, 92, 5);
 }
 
 #produtos {
@@ -174,7 +174,7 @@ ul li a:hover {
     margin: auto;
     padding: auto 10px auto 10px;
     align-items: center;
-    color: rgb(214, 57, 57);
+    color: rgb(240, 240, 240);
 }
 
 
