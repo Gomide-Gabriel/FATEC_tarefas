@@ -76,7 +76,7 @@ function loadImagesFunc(){
     
     // atribuindo os <li>
     liChild = ulCarrossel[0].children;
-    console.log(liChild[0].children);
+    console.log(liChild.length);
 
 
     for (let i = 0; i < liChild.length; i++) {
@@ -89,7 +89,7 @@ function loadImagesFunc(){
         imgElement.width= 150;
         imgElement.height= 250;
 
-        imgElement.src = myProducts[0].at(i).Image;
+        imgElement.src = myProducts[0].at(1).Image;
 
 
         if (liChild[i]) {
@@ -98,7 +98,7 @@ function loadImagesFunc(){
             liChild[i].insertBefore(liChild[i].appendChild(imgElement), liPara[0]);
 
         }
-        else console.error("Não foi achaddo");
+        else console.error("Não foi achado");
     }
     
 }

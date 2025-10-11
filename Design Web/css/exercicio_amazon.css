@@ -7,6 +7,10 @@
     margin-bottom: 60px;
 }
 
+main {
+    background-color: black;
+}
+
 .my-grid > div{
     margin-top: 50px;
     
@@ -78,4 +82,10 @@ main{
 .card:hover::after {
     transform: scale(0.9);
     transition: transform 0.3s ease-out;
+}
+
+.card-body {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
 }
