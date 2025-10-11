@@ -89,7 +89,7 @@ function loadImagesFunc(){
         imgElement.width= 150;
         imgElement.height= 250;
 
-        imgElement.src = myProducts[0].at(1).Image;
+        imgElement.src = myProducts[0].at(2).Image;
 
 
         if (liChild[i]) {
