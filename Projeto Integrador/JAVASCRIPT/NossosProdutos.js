@@ -84,12 +84,15 @@ function loadImagesFunc(){
         let imgElement = document.createElement('img');
         let liPara = liChild[i].children;
 
-        //console.log(liPara);
+        console.log(liPara);
         imgElement.textContent = "Nova imagem";
-        imgElement.width= 150;
-        imgElement.height= 250;
+        imgElement.style.width= "150px";
+        imgElement.style.height= "250px";
+        imgElement.style.backgroundColor = "rgb(255,255,255)";
+        imgElement.style.borderRadius = "20px";
 
-        imgElement.src = myProducts[0].at(2).Image;
+
+        imgElement.src = myProducts[0].at(3).Image;
 
 
         if (liChild[i]) {

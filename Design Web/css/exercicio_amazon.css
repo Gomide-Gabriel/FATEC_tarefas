@@ -46,7 +46,7 @@ main {
     height: 10px;
 
     background-image: linear-gradient( rgba(234, 234, 234, 0.3), rgb(160, 160, 160, 0.5), black );
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     z-index: 0;
 }
 
