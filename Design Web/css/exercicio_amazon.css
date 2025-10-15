@@ -7,6 +7,10 @@
     margin-bottom: 60px;
 }
 
+main {
+    background-color: black;
+}
+
 .my-grid > div{
     margin-top: 50px;
     
@@ -42,7 +46,7 @@
     height: 10px;
 
     background-image: linear-gradient( rgba(234, 234, 234, 0.3), rgb(160, 160, 160, 0.5), black );
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     z-index: 0;
 }
 
@@ -78,4 +82,10 @@ main{
 .card:hover::after {
     transform: scale(0.9);
     transition: transform 0.3s ease-out;
+}
+
+.card-body {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
 }

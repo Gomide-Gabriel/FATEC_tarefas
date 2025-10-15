@@ -94,7 +94,7 @@ function loadImagesFunc(){
     
     // atribuindo os <li>
     liChild = ulCarrossel[0].children;
-    console.log(liChild[0].children);
+    console.log(liChild.length);
 
 
     for (let i = 0; i < liChild.length; i++) {
@@ -102,7 +102,7 @@ function loadImagesFunc(){
         let imgElement = document.createElement('img');
         let liPara = liChild[i].children;
 
-        //console.log(liPara);
+        console.log(liPara);
         imgElement.textContent = "Nova imagem";
         imgElement.width= 150;
         imgElement.height= 250;
