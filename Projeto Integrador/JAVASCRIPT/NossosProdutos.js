@@ -104,8 +104,8 @@ function loadImagesFunc(){
 
         console.log(liPara);
         imgElement.textContent = "Nova imagem";
-        imgElement.width= 150;
-        imgElement.height= 250;
+        imgElement.style.width = "150px";
+        imgElement.style.height = "250px";
         imgElement.src = "";
 
         
