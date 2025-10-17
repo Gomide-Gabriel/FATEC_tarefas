@@ -133,9 +133,9 @@ ul li a:hover {
 }
 
 .roundbox {
-    border: 1px solid rgb(91, 91, 240);
-    border-radius: 40px 40px 40px 40px;
-    background-color:  rgb(91, 91, 240);
+    border: 1px solid rgba(44, 90, 215, 0.568);
+    border-radius: 30px;
+    background-color: rgba(44, 90, 215, 0.568);
 }
 
 #sobreNos.roundbox  {
@@ -169,10 +169,13 @@ ul li a:hover {
 }
 
 #info_pt1 {
-    max-width: 400px;
-    max-height: 250px;
+    max-width: 800px;
+    max-height: 330px;
     padding-left: 200;
     padding-right: 200;
+
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -184,9 +187,9 @@ ul li a:hover {
 }
 
 #info_pt2 {
-    width: 100px;
-    max-width: 400px;
-    max-height: 250px;
+    
+    max-width: 800px;
+    max-height: 330px;
     padding-left: 20;
     padding-right: 20;
     margin-left: auto;
@@ -332,4 +335,9 @@ ul li a:hover {
     border-radius: 40px;
     background-color: rgb(37, 37, 221);
 
+}
+
+#cont-img{
+    width: 100%;
+    
 }
