@@ -74,9 +74,10 @@ ul li a:hover {
 
 #fimPrincipal {
    
-    min-height: 230px;
+    height: 500px;
     background-color: rgb(37, 37, 221);
     max-width: auto;
+    height: 100%;
 }
 
 /*  */
@@ -338,6 +339,12 @@ ul li a:hover {
 }
 
 #cont-img{
+    display: flex;
     width: 100%;
+    align-items: center;
     
+}
+
+#cont-img img{
+    width: 100%;
 }
