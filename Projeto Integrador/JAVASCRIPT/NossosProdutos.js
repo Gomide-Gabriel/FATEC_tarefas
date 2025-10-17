@@ -1,10 +1,10 @@
 
 const masculineCostume = [
-    {name: 'fm1', image: './img/FM1.png'},
-    {name: 'fm2', image: './img/FM2.png'},
-    {name: 'fm3', image: './img/FM3.png'},
-    {name: 'fm4', image: './img/FM4.png'},
-    {name: 'fm5', image: './img/FM5.png'}
+    {name: 'fm1', image: './img/Costume/FM1.png'},
+    {name: 'fm2', image: './img/Costume/FM2.png'},
+    {name: 'fm3', image: './img/Costume/FM3.png'},
+    {name: 'fm4', image: './img/Costume/FM4.png'},
+    {name: 'fm5', image: './img/Costume/FM5.png'}
 ];
 
 const feminineCostume = [
