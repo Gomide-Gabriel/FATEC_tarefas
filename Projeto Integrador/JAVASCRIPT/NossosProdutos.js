@@ -99,6 +99,8 @@ function loadImagesFunc(){
 
     for (let i = 0; i < liChild.length; i++) {
 
+        // CRIANDO O ELEMENTO <img>
+
         let imgElement = document.createElement('img');
         let liPara = liChild[i].children;
 
