@@ -14,7 +14,23 @@
 //console.log(usuario);
 
 
-if (true){
-    let x = 30;
-}
-console.log(X);
+//if (true){
+//    let x = 30;
+//}
+//console.log(X);
+
+/*LISTA DE TAREFA
+
+    ESTUDAR PARA PROVA <- texto de tarefa  | OK | <- Clica 
+
+    A FAZER
+
+    *ESTUDAR PARA PROVA | FEITO! |
+
+    CONCLUIDOS 
+
+    ESTUDAR PARA PROVA
+
+
+
+*/
