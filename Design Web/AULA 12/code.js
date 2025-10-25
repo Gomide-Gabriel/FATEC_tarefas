@@ -12,7 +12,8 @@ function adicionar(){
                         feito
                         </button>`; 
 
-
+                        
+    console.log( element);
     list.append(element);
     
 }
