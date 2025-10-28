@@ -17,9 +17,13 @@ window.addEventListener(`load`, () => {
 })
 
 
-function createElement(){
+function createElement(max, min){
+
+    let randomicValue = Math.floor(Math.random() * (max-min)) + min;
+    
     const imgElement = document.createElement(`img`);
     imgElement.src = "";
-    imgElement.style.height = 
+    imgElement.style.height = randomicValue; 
+    imgElement.style.width = randomicValue;
 
 }
