@@ -19,11 +19,11 @@ window.addEventListener(`load`, () => {
 
 function createElement(max, min){
 
-    let randomicValue = Math.floor(Math.random() * (max-min)) + min;
-    
+    let randSize = Math.floor(Math.random() * (max-min)) + min;
+
     const imgElement = document.createElement(`img`);
     imgElement.src = "";
-    imgElement.style.height = randomicValue; 
-    imgElement.style.width = randomicValue;
+    imgElement.style.height = randSize; 
+    imgElement.style.width = randSize;
 
 }
