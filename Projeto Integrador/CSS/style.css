@@ -323,10 +323,11 @@ ul li a:hover {
 
 
 #pr-item ul li{
+
     margin: auto 50px 150px 50px;
     padding: auto 10% auto 10%;
 
-    max-width: 280px;
+    max-width: 380px;
     height: 380px;
 
     text-align: center;
@@ -335,6 +336,32 @@ ul li a:hover {
     background-color: rgb(180, 96, 0);
     border-radius: 40px;
 }
+
+.container-promocao-item {
+
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.container-promocao-item section {
+    margin-left: 10px;
+    margin-right: 10px;
+
+    height: 280px;
+}
+
+
+#pr-item ul li img{
+    position: relative;
+    width: 96px;
+    height: 95px;
+    bottom: 90px;
+    left: 170px;
+
+    margin-bottom: -100px;
+}
+
 
 /*
 #pr-item ul{
