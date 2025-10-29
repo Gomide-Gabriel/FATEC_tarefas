@@ -19,7 +19,8 @@ window.addEventListener(`load`, () => {
 
 function createElement(max, min, imgNum){
 
-    for (int i = 0; i < imgNum; i++){
+    for (let i = 0; i < imgNum; i++) {
+
         let randSize = Math.floor(Math.random() * (max-min)) + min;
         let randPos = Math.floor(Math.random() * ((max*15) -min)) + min;
 
