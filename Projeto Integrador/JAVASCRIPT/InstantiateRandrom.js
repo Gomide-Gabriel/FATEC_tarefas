@@ -17,16 +17,18 @@ window.addEventListener(`load`, () => {
 })
 
 
-function createElement(max, min){
+function createElement(max, min, imgNum){
 
-    let randSize = Math.floor(Math.random() * (max-min)) + min;
-    let randPos = Math.floor(Math.random() * ((max*15) -min)) + min;
+    for (int i = 0; i < imgNum; i++){
+        let randSize = Math.floor(Math.random() * (max-min)) + min;
+        let randPos = Math.floor(Math.random() * ((max*15) -min)) + min;
 
-    const imgElement = document.createElement(`img`);
-    imgElement.src = "";
-    imgElement.style.height = randSize; 
-    imgElement.style.width = randSize;
-    imgElement.style.top = randPos;
-    imgElement.style.bottom = randPos;
+        const imgElement = document.createElement(`img`);
+        imgElement.src = "";
+        imgElement.style.height = randSize; 
+        imgElement.style.width = randSize;
+        imgElement.style.top = randPos;
+        imgElement.style.bottom = randPos;
+    }
 
 }
