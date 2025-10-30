@@ -75,6 +75,14 @@ let imgCount;
 // indica se acabou a atribuição do elemento img
 let imgElementDone; 
 
+//timer do SetInterval
+const timer = 2500;
+
+//Animação
+
+let pos = 150;
+
+
 // Carrega o Script quando a tela carrega
 
 window.addEventListener('load', () => {
@@ -85,9 +93,15 @@ window.addEventListener('load', () => {
         
         setInterval(function() {
             ChangeImage(liChild[0].children[0])
-            }, 2000);
+            }, timer);
+
+        //asyncDelayedLoop();
+        Animating(liChild[0].children[0]);
     }
 })
+
+
+
 
 
 function loadImagesFunc(){
@@ -108,6 +122,7 @@ function loadImagesFunc(){
         imgElement.textContent = "Nova imagem";
         imgElement.style.width = "150px";
         imgElement.style.height = "250px";
+        imgElement.style.position = "relative";
         imgElement.src = "";
 
         
@@ -120,6 +135,9 @@ function loadImagesFunc(){
         else console.error("Não foi achado");
     }
 
+
+    //primeira recursão quando carrega a página
+    ChangeImage(liChild[0].children[0]);
     imgElementDone = true;
 
 
@@ -127,7 +145,7 @@ function loadImagesFunc(){
 }
 
 function ChangeImage(imgConteiner){
-    console.log("chamou");
+    //console.log("chamou");
    
     if (imgConteiner.getAttribute('src') == ""){
         //console.log("entrou");
@@ -139,14 +157,57 @@ function ChangeImage(imgConteiner){
         imgCount++;
         imgConteiner.src  = myProducts[0].at(imgCount).image;
         
+        
     }
 
+    //Animating(imgConteiner);
+    //asyncDelayedLoop(imgConteiner);
     
 }
 
-function Animation(imgObj){
+/*
+function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-    imgObj.animate(animateImage);
+async function asyncDelayedLoop(imgObj) {
+    while (imgElementDone) {
+        
+        
+
+        if (pos < 0){
+            pos-=1;
+            imgObj.style.right = pos + 'px';
+            setTimeout(asyncDelayedLoop(imgObj));
+        }
+
+        await delay(timer); // Wait for 1 second
+
+        if (pos >= 0 || pos <= 150){
+            pos-=1;
+            imgObj.style.right = pos + 'px';
+            setTimeout(asyncDelayedLoop(imgObj));
+        }
+    }
+}
+*/
+
+function Animating(imgObj){
+    // mexendo com propriedades
+    //imgObj.style.right = pos + 'px';
+    console.log("o");
+
+    if (pos < 0){
+        console.log("a");
+        pos-=1;
+        imgObj.style.right = pos + 'px';
+    }
+    else if (pos >= 0 || pos <= 150){
+        pos-=1;
+        imgObj.style.right = pos + 'px';
+        
+    }
+
 }
 
 function CreateImage(imgId){

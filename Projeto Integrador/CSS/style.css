@@ -250,9 +250,14 @@ ul li a:hover {
     row-gap: 20px;
     column-gap: 20px;
     margin: 100px 100px 100px 250px ;
-    
     justify-content: center;
 }
+
+#carrossel ul img {
+
+}
+
+
 /*
 
 #carrossel ul {
