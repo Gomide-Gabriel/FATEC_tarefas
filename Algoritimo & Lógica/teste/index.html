@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body style="background-color: black;">
+        
+        <div id="container" style="width: 400px; height: 400px;  position: relative;  background: yellow; display: flex; justify-self: center;">
+            <div id="animation" style="width: 50px; height: 50px; position: absolute; background: red; position: relative;"> </div>
+
+        </div>
+
+        <script>
+            
+
+            animation.onclick = function() {
+                
+              menager();
+
+            }
+
+
+            let pos;
+            let speed = 1;
+            let lastTimeStamp = Date.now();
+            
+            let myAnim;
+            let loop = 0;
+            let animated = false;
+
+            const width = parseFloat(animation.style.getPropertyValue('width'));
+            const target = width*-1;
+
+            window.onload = function (){
+                //menager();
+            }
+
+            function menager(){
+                animated = false;
+                loop+=2;
+
+                myAnim = setInterval(function()  {
+                    animate(loop);
+                },
+                10);
+                
+                setTimeout(function() {
+                    if (animated == true) menager();
+                }, 4000);
+            }
+
+            function animate(destiny){            
+                
+                if (pos == null) {
+                    pos = animation.style.right;
+                }
+
+                if (pos <= target*destiny){
+                    animated = true;
+                    console.log(animated);
+                    clearInterval(myAnim);
+                }
+                else {
+                    pos-= speed;
+                    animation.style.right = pos + 'px';
+                }
+            }
+            
+        </script>
+
+    </body>
+</html>
