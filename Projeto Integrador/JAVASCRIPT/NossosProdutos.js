@@ -141,12 +141,8 @@ function loadImagesFunc(){
         else console.error("Não foi achado");
     }
 
-
-    //primeira recursão quando carrega a página
     ChangeImage(liChild[0].children[0]);
     imgElementDone = true;
-
-
 
 }
 
@@ -165,9 +161,6 @@ function ChangeImage(imgConteiner){
         
         
     }
-
-    //Animating(imgConteiner);
-    //asyncDelayedLoop(imgConteiner);
     
 }
 
