@@ -11,18 +11,15 @@
         </div>
 
         <script>
-            
 
             animation.onclick = function() {
                 
               menager();
 
             }
-
-
             let pos;
             let speed = 1;
-            let lastTimeStamp = Date.now();
+           
             
             let myAnim;
             let loop = 0;
@@ -39,28 +36,39 @@
                 animated = false;
                 loop+=2;
 
+                console.log("loop: " + loop);
+                // repete a função com um intervalo de 10ms
                 myAnim = setInterval(function()  {
-                    animate(loop);
+                    if (animated == false) animate(loop, 3);
                 },
                 10);
-                
+
+                // agenda a chamada de uma função após 4s 
                 setTimeout(function() {
+                    console.log("timeout");
                     if (animated == true) menager();
                 }, 4000);
             }
 
-            function animate(destiny){            
+            function animate(destiny, final){            
                 
                 if (pos == null) {
                     pos = animation.style.right;
                 }
 
                 if (pos <= target*destiny){
+                    console.log("chegou");
                     animated = true;
-                    console.log(animated);
+                    clearInterval(myAnim);
+                } else if (pos <= target*final){
+                    console.log("final");
+                    pos = 0;
+                    loop = 0;
+                    animated = true;
                     clearInterval(myAnim);
                 }
                 else {
+                    console.log("animando");
                     pos-= speed;
                     animation.style.right = pos + 'px';
                 }

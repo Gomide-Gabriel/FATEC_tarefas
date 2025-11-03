@@ -81,6 +81,12 @@ const timer = 2500;
 //Animação
 
 let pos = 150;
+let speed = 1;
+
+let myAnim;
+let loop = 0;
+let animated = false;
+
 
 
 // Carrega o Script quando a tela carrega
@@ -96,7 +102,7 @@ window.addEventListener('load', () => {
             }, timer);
 
         //asyncDelayedLoop();
-        Animating(liChild[0].children[0]);
+        //Animating(liChild[0].children[0]);
     }
 })
 
@@ -165,32 +171,6 @@ function ChangeImage(imgConteiner){
     
 }
 
-/*
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function asyncDelayedLoop(imgObj) {
-    while (imgElementDone) {
-        
-        
-
-        if (pos < 0){
-            pos-=1;
-            imgObj.style.right = pos + 'px';
-            setTimeout(asyncDelayedLoop(imgObj));
-        }
-
-        await delay(timer); // Wait for 1 second
-
-        if (pos >= 0 || pos <= 150){
-            pos-=1;
-            imgObj.style.right = pos + 'px';
-            setTimeout(asyncDelayedLoop(imgObj));
-        }
-    }
-}
-*/
 
 function Animating(imgObj){
     // mexendo com propriedades
@@ -207,8 +187,38 @@ function Animating(imgObj){
         imgObj.style.right = pos + 'px';
         
     }
-
 }
+
+function menager(){
+    animated = false;
+    loop+=2;
+
+    myAnim = setInterval(function()  {
+        animate(loop);
+    },10);
+    
+    setTimeout(function() {
+        if (animated == true) menager();
+    }, timer*0.6);
+}
+
+function animate(destiny, imgObj){            
+                
+    if (pos == null) {
+        pos = animation.style.right;
+    }
+
+    if (pos <= target*destiny){
+        animated = true;
+        console.log(animated);
+        clearInterval(myAnim);
+    }
+    else {
+        pos-= speed;
+        animation.style.right = pos + 'px';
+    }
+}
+
 
 function CreateImage(imgId){
     // Cria a tag de elemento  
