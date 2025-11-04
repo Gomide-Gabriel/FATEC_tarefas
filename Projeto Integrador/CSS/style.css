@@ -253,9 +253,12 @@ ul li a:hover {
     justify-content: center;
 }
 
-#carrossel ul img {
+#carrossel ul li {
+    overflow: hidden;
 
 }
+
+
 
 
 /*
