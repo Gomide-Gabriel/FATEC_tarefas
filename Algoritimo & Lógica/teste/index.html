@@ -5,7 +5,7 @@
     </head>
     <body style="background-color: black;">
         
-        <div id="container" style="width: 180px; height: 300px;  position: relative;  background: yellow; display: flex; justify-self: center; justify-content: center; ">
+        <div id="container" style="width: 180px; height: 300px;  position: relative;  background: yellow; display: flex; justify-self: center; justify-content: center; overflow: hidden; ">
             <!--<div id="animation" style="width: 150px; height: 250px; position: absolute; background: red; position: relative;"> </div>
             -->
             <img src="FM1.png"  id="image" style ="width: 150px; height: 250px; background-color: gray; position: absolute; position: relative;" >
@@ -62,7 +62,7 @@
                 },
                 10);   
 
-                if (vez == 0) timer = 100;
+                if (vez == 0) timer = 5;
                 else timer = 2000;
                 
                 if (myTimeOut != null) clearTimeout(myTimeOut);
