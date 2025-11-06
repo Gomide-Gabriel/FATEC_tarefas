@@ -75,19 +75,31 @@ let imgCount;
 // indica se acabou a atribuição do elemento img
 let imgElementDone; 
 
-//timer do SetInterval
-const timer = 2500;
+// PARTE DA ANIMAÇÃO //
 
-//Animação
+// referencias para o destino e caminho
+let width = 0;
+let target = 0;
 
-let pos = 150;
-let speed = 1;
 
+// configura a posição inicial e velocidade
+let pos = 160;
+let speed = 2;
+
+// tempo
+let timer = 2000;
+
+// variaveis que cuidam da animation
+let myTimeOut;
 let myAnim;
-let loop = 0;
+let loop = -2;
 let animated = false;
+let finalized = false;
 
+let destinated = false;
 
+ // contador de loop
+let vez = 0;
 
 // Carrega o Script quando a tela carrega
 
@@ -97,16 +109,19 @@ window.addEventListener('load', () => {
     
     if (imgElementDone){ 
         
+        /*
         setInterval(function() {
             ChangeImage(liChild[0].children[0])
             }, timer);
-
+        */
         //asyncDelayedLoop();
         //Animating(liChild[0].children[0]);
+
+        menager();
+        ChangeImage(liChild[0].children[0]);
+
     }
 })
-
-
 
 
 
@@ -131,6 +146,10 @@ function loadImagesFunc(){
         imgElement.style.position = "relative";
         imgElement.src = "";
 
+        // Referencias de distância para animação
+        width = parseFloat(imgElement.style.getPropertyValue('width'));
+        target = width*-1;
+
         
         if (liChild[i]) {
             
@@ -141,10 +160,82 @@ function loadImagesFunc(){
         else console.error("Não foi achado");
     }
 
-    ChangeImage(liChild[0].children[0]);
+    //ChangeImage(liChild[0].children[0]);
+    //console.log(liChild[0].children[0]);
     imgElementDone = true;
 
 }
+
+
+function menager(){
+    vez++;
+
+    if (myTimeOut && myAnim) {
+        console.log("Timeout cleared!");
+        clearTimeout(myTimeOut);
+        myTimeOut = null;
+        clearInterval(myAnim);
+        myAnim = null;
+        
+    }      
+
+    animated = false;
+    loop+=2;
+    //console.log("vez: " + vez);
+
+    //console.log("loop: " + loop);
+    // repete a função com um intervalo de 10ms
+    myAnim = setInterval(function()  {
+        if (animated == false) animate(loop, 1.5, liChild[0].children[0]);
+    },
+    10);   
+
+    if (vez == 2) timer = 1180;
+    else timer = 2000;
+
+    myTimeOut = setTimeout(function() {
+            console.log("timeout: " +  timer);
+            if (animated == true) menager();
+    }, timer);
+    
+}
+
+function animate(destiny, final, imgElement){            
+    
+    if (pos == null) {
+        pos = imgElement.style.right;
+        //console.log("nulo");
+    }
+
+    if (pos < target*destiny && destinated == false){
+        //console.log("chegou");
+        //console.log("Pos: " + pos + " destiny; " + target*destiny);
+        animated = true;
+        destinated= true;
+        clearInterval(myAnim);
+
+    } else if (pos < target*final && destinated == true){
+        //console.log("Pos: " + pos + " target; " + target*final);
+        pos = 160;
+        loop = -2;
+        animated = true;
+        destinated = false;
+        finalized = true;
+        vez = 0;
+        //console.log("final e finalized " + finalized );
+        
+        ChangeImage(imgElement);
+        clearInterval(myAnim);
+    }
+    else {
+        //console.log("animando");
+        pos-= speed;
+        imgElement.style.right = pos + 'px';
+    }
+
+
+}
+
 
 function ChangeImage(imgConteiner){
     //console.log("chamou");
@@ -155,7 +246,7 @@ function ChangeImage(imgConteiner){
     }
     else{
         //console.log("segunda parte");
-        if (imgCount >= 4) imgCount = 0;
+        if (imgCount >= 4) imgCount = -1;
         imgCount++;
         imgConteiner.src  = myProducts[0].at(imgCount).image;
         
@@ -163,6 +254,7 @@ function ChangeImage(imgConteiner){
     }
     
 }
+
 
 
 function Animating(imgObj){
@@ -179,36 +271,6 @@ function Animating(imgObj){
         pos-=1;
         imgObj.style.right = pos + 'px';
         
-    }
-}
-
-function menager(){
-    animated = false;
-    loop+=2;
-
-    myAnim = setInterval(function()  {
-        animate(loop);
-    },10);
-    
-    setTimeout(function() {
-        if (animated == true) menager();
-    }, timer*0.6);
-}
-
-function animate(destiny, imgObj){            
-                
-    if (pos == null) {
-        pos = animation.style.right;
-    }
-
-    if (pos <= target*destiny){
-        animated = true;
-        console.log(animated);
-        clearInterval(myAnim);
-    }
-    else {
-        pos-= speed;
-        animation.style.right = pos + 'px';
     }
 }
 
