@@ -118,7 +118,7 @@ window.addEventListener('load', () => {
         //Animating(liChild[0].children[0]);
 
         menager();
-        ChangeImage(liChild[0].children[0]);
+        ChangeImage(liChild);
 
     }
 })
@@ -186,7 +186,7 @@ function menager(){
     //console.log("loop: " + loop);
     // repete a função com um intervalo de 10ms
     myAnim = setInterval(function()  {
-        if (animated == false) animate(loop, 1.5, liChild[0].children[0]);
+        if (animated == false) animate(loop, 1.5, liChild);
     },
     10);   
 
@@ -202,55 +202,58 @@ function menager(){
 
 function animate(destiny, final, imgElement){            
     
-    if (pos == null) {
-        pos = imgElement.style.right;
-        //console.log("nulo");
+    for (let i = 0; i < imgElement.length; i++){
+
+        if (pos == null) {
+            pos = imgElement[i].children[0].style.right;
+            //console.log("nulo");
+        }
+
+        if (pos < target*destiny && destinated == false){
+            //console.log("chegou");
+            //console.log("Pos: " + pos + " destiny; " + target*destiny);
+            animated = true;
+            destinated= true;
+            clearInterval(myAnim);
+
+        } else if (pos < target*final && destinated == true){
+            //console.log("Pos: " + pos + " target; " + target*final);
+            pos = 160;
+            loop = -2;
+            animated = true;
+            destinated = false;
+            finalized = true;
+            vez = 0;
+            //console.log("final e finalized " + finalized );
+            
+            ChangeImage(imgElement);
+            clearInterval(myAnim);
+        }
+        else {
+            //console.log("animando");
+            pos-= speed;
+            imgElement[i].children[0].style.right = pos + 'px';
+        }
     }
-
-    if (pos < target*destiny && destinated == false){
-        //console.log("chegou");
-        //console.log("Pos: " + pos + " destiny; " + target*destiny);
-        animated = true;
-        destinated= true;
-        clearInterval(myAnim);
-
-    } else if (pos < target*final && destinated == true){
-        //console.log("Pos: " + pos + " target; " + target*final);
-        pos = 160;
-        loop = -2;
-        animated = true;
-        destinated = false;
-        finalized = true;
-        vez = 0;
-        //console.log("final e finalized " + finalized );
-        
-        ChangeImage(imgElement);
-        clearInterval(myAnim);
-    }
-    else {
-        //console.log("animando");
-        pos-= speed;
-        imgElement.style.right = pos + 'px';
-    }
-
-
 }
 
 
 function ChangeImage(imgConteiner){
     //console.log("chamou");
    
-    if (imgConteiner.getAttribute('src') == ""){
+    for (let i = 0; i < imgConteiner.length; i++){
+        if (imgConteiner[i].children[0].getAttribute('src') == ""){
         //console.log("entrou");
-        imgConteiner.src = myProducts[0].at(0).image;
-    }
-    else{
-        //console.log("segunda parte");
-        if (imgCount >= 4) imgCount = -1;
-        imgCount++;
-        imgConteiner.src  = myProducts[0].at(imgCount).image;
-        
-        
+            imgConteiner[i].children[0].src = myProducts[0].at(0).image;
+        }
+        else{
+            //console.log("segunda parte");
+            if (imgCount >= 4) imgCount = -1;
+            imgCount++;
+            imgConteiner[i].children[0].src  = myProducts[0].at(imgCount).image;
+            
+            
+        }
     }
     
 }
