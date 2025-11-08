@@ -23,6 +23,11 @@ body {
 
 ul li {
     float: left;
+    transition: transform .2s;
+}
+
+ul li:hover {
+    transform: scale(1.11);
 }
 
 ul li a {
@@ -255,9 +260,13 @@ ul li a:hover {
 
 #carrossel ul li {
     overflow: hidden;
-
+    transition: transform .2s;
 }
 
+#carrossel ul li:hover {
+    transform: scale(1.12);
+
+}
 
 
 
@@ -403,18 +412,20 @@ ul li a:hover {
     margin-top: 20px;
     width: 140px;
     text-align: center;
+    color: white;
 }
 
 #contatos div{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    color: white;
 }
 
 #contatos div section{
     margin: 100px 50px 150px 50px;
     padding: 1%;
-    
+
     border: 1px solid blue;
     border-radius: 40px;
     background-color: rgb(37, 37, 221);
