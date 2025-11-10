@@ -14,6 +14,8 @@ const image = [
 
 
 //lista dos cards <li>
-
 const cardPromo = document.getElementsByClassName('container-promocao-item');
+
+
+
 
