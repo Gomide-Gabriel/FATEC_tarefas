@@ -109,14 +109,6 @@ window.addEventListener('load', () => {
     
     if (imgElementDone){ 
         
-        /*
-        setInterval(function() {
-            ChangeImage(liChild[0].children[0])
-            }, timer);
-        */
-        //asyncDelayedLoop();
-        //Animating(liChild[0].children[0]);
-
         menager();
         ChangeImage(liChild);
 
