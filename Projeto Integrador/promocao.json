@@ -3,38 +3,44 @@
 {
     "promocoes": {
         "halloween": [
-            {
-                "promocao1": {
-                    "image":"./img/Costume/Promocoes/HLW/CH1",
+            
+                {
+                    "image":"./img/Costume/Promocoes/HLW/CH1.png",
+                    "nome": "Dona Morte",
                     "tamanho":["P 38-40", "M 42-44", "G 46-48", "GG 50-52"],
                     "preco": "160 R$"
                 },
-                "promocao2": {
-                    "image":"./img/Costume/Promocoes/HLW/CH2",
+                {
+                    "image":"./img/Costume/Promocoes/HLW/CH2.png",
+                    "nome": "Dark Souls 2",
                     "tamanho":["P 38-40", "M 42-44", "G 46-48", "GG 50-52"],
                     "preco": "160 R$"
                 }, 
-                "promocao3": {
-                    "image":"./img/Costume/Promocoes/HLW/CH3",
+                {
+                    "image":"./img/Costume/Promocoes/HLW/CH3.png",
+                    "nome":  "It o Patati",
                     "tamanho":["P 38-40", "M 42-44", "G 46-48", "GG 50-52"],
                     "preco": "160 R$"
                 },  
-                "promocao4": {
-                    "image":"./img/Costume/Promocoes/HLW/CH4",
+                {
+                    "image":"./img/Costume/Promocoes/HLW/CH4.png",
+                    "nome":  "Mother Miranda",
                     "tamanho":["P 38-40", "M 42-44", "G 46-48", "GG 50-52"],
                     "preco": "160 R$"
                 },
-                "promocao5": {
-                    "image":"./img/Costume/Promocoes/HLW/CH5",
+                {
+                    "image":"./img/Costume/Promocoes/HLW/CH5.png",
+                    "nome":  "Branca de neve RGB Negativo",
                     "tamanho":["P 38-40", "M 42-44", "G 46-48", "GG 50-52"],
                     "preco": "160 R$"
                 },
-                "promocao6": {
-                    "image":"./img/Costume/Promocoes/HLW/CH6",
+                {
+                    "image":"./img/Costume/Promocoes/HLW/CH6.png",
+                    "nome":  "Chainsaw Man",
                     "tamanho":["P 38-40", "M 42-44", "G 46-48", "GG 50-52"],
                     "preco": "160 R$"
                 }
-            }
+            
         ]
     }
     

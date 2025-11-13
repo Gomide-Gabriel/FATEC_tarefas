@@ -173,10 +173,7 @@ function menager(){
 
     animated = false;
     loop+=2;
-    //console.log("vez: " + vez);
-
-    //console.log("loop: " + loop);
-    // repete a função com um intervalo de 10ms
+    
     myAnim = setInterval(function()  {
         if (animated == false) animate(loop, 1.5, liChild);
     },

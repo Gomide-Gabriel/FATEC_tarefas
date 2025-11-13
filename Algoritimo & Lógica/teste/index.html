@@ -4,150 +4,60 @@
 
     </head>
     <body style="background-color: black;">
-        
-        <div id="container" style="width: 180px; height: 300px;  position: relative;  background: yellow; display: flex; justify-self: center; justify-content: center; overflow: hidden; ">
-            <!--<div id="animation" style="width: 150px; height: 250px; position: absolute; background: red; position: relative;"> </div>
-            -->
-            <img src=""  id="image" style ="width: 150px; height: 250px; background-color: gray; position: absolute; position: relative;" >
-        </div>
+        <main id="main" style="background-color: white;">
 
-        <script>
-
-            image.onclick = function() {
-                
-              menager();
-              ChangeImage(image);
-            }
-
-            const masculineCostume = [
-                {name: 'fm1', url: 'FM1.png'},
-                {name: 'fm2', url: 'FM2.png'},
-                {name: 'fm4', url: 'FM4.png'},
-                {name: 'fm3', url: 'FM3.png'},
-                {name: 'fm5', url: 'FM5.png'}
-            ];
-    
-            // todas as listas de produto
-            const myProducts = [masculineCostume];
-
-            let imgCount = 0;
-
-            // configura a posição inicial e velocidade
-            let pos = 160;
-            let speed = 2;
-
-            // tempo
-            let timer = 2000;
-            
-            // variaveis que cuidam da animation
-            let myTimeOut;
-            let myAnim;
-            let loop = -2;
-            let animated = false;
-            let finalized = false;
-
-            let destinated = false;
-
-
-            // referencias para o destino e caminho
-            const width = parseFloat(image.style.getPropertyValue('width'));
-            const target = width*-1;
-
-            // contador de loop
-            let vez = 0;
-
-            window.onload = function (){
-                //menager();
-            }
-
-            function menager(){
-                vez++;
-
-                if (myTimeOut && myAnim) {
-                    console.log("Timeout cleared!");
-                    clearTimeout(myTimeOut);
-                    myTimeOut = null;
-                    clearInterval(myAnim);
-                    myAnim = null;
-                    
-                }      
-            
-                animated = false;
-                loop+=2;
-                //console.log("vez: " + vez);
-
-                //console.log("loop: " + loop);
-                // repete a função com um intervalo de 10ms
-                myAnim = setInterval(function()  {
-                    if (animated == false) animate(loop, 1.5);
-                },
-                10);   
-
-                if (vez == 2) timer = 1180;
-                else timer = 2000;
-            
-                myTimeOut = setTimeout(function() {
-                        console.log("timeout: " +  timer);
-                        if (animated == true) menager();
-                }, timer);
-                
-            }
-
-            function animate(destiny, final){            
-                
-                if (pos == null) {
-                    pos = image.style.right;
-                    //console.log("nulo");
-                }
-
-                if (pos < target*destiny && destinated == false){
-                    //console.log("chegou");
-                    //console.log("Pos: " + pos + " destiny; " + target*destiny);
-                    animated = true;
-                    destinated= true;
-                    clearInterval(myAnim);
-
-                } else if (pos < target*final && destinated == true){
-                    //console.log("Pos: " + pos + " target; " + target*final);
-                    pos = 160;
-                    loop = -2;
-                    animated = true;
-                    destinated = false;
-                    finalized = true;
-                    vez = 0;
-                    //console.log("final e finalized " + finalized );
-                    
-                    ChangeImage(image);
-                    clearInterval(myAnim);
-                }
-                else {
-                    //console.log("animando");
-                    pos-= speed;
-                    image.style.right = pos + 'px';
-                }
-
-
-            }
-
-
-            function ChangeImage(imgConteiner){
-            
-                if (imgConteiner.getAttribute('src') == ""){
-                    console.log("entrou");
-                    imgConteiner.src = myProducts[0].at(0).url;
-                }
-                else{
-                    console.log("segunda parte");
-                    if (imgCount >= 4) imgCount = -1;
-                    imgCount++;
-                    imgConteiner.src  = myProducts[0].at(imgCount).url;
-                    
-                    
-                }
-                
-            }
-            
-        </script>
-
+        </main>
     </body>
+
+    <script>
+
+        window.addEventListener('load', () => {
+            teste();
+            //let newDiv = document.createElement('div');
+            
+            //main.append(newDiv);
+        });
+
+        function teste(){
+            let newDiv = document.createElement('div');
+            let newUl = document.createElement('ul');
+            let newLi = new Array(6);
+
+            newUl.style = ` display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                row-gap: 20px;
+                column-gap: 20px;
+                margin: 100px 100px 100px 250px ;
+                
+                justify-content: center;`;
+            
+            
+            
+            main.append(newDiv);
+            main.children[0].append(newUl);
+            
+            //main.children[1].children[0].append()
+            for (let j=0; j<newLi.length;j++){
+                newLi[j] = document.createElement('li');
+                newLi[j].style = ` margin: auto 50px 150px 50px;
+                            padding: auto 10% auto 10%;
+
+                            max-width: 380px;
+                            height: 380px;
+
+                            text-align: center;
+
+                            border: 1px solid rgb(239, 128, 1);
+                            background-color: rgb(180, 96, 0);
+                            border-radius: 40px;`;
+                main.children[0].children[0].append(newLi[j]);
+            }
+
+
+        }
+
+
+
+    </script>
 </html>

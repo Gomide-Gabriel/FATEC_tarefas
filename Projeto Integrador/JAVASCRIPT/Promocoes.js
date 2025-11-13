@@ -22,6 +22,7 @@ const myJson =  new Request("promocao.json");
 const cardPromo = document.getElementsByClassName('container-promocao-item');
 //const category = cardPromo.document.ques;
 
+const parentHead = document.getElementsByTagName('head');
 
 
 //let currentMonth = new Date(); -- programação dinamica ao todo
@@ -43,7 +44,7 @@ function teste(){
         category: cardPromo.getAttribute('data-my-variable')
     });
 
-    console.log(jsonData.category);
+    //console.log(jsonData.category);
 
 }
 
@@ -61,27 +62,6 @@ function checkDate(){
 
                 // se sim o card de promoção é aberto
                 if (cardPromo[i].children[0].getAttribute('src') != image[0].url) cardPromo[i].children[0].children[0].src = image[1].url;
-                
-                cardPromo[i].children[0].addEventListener('click', () => {
-                    
-                    const newDiv = document.createElement('div');
-                    const newUl = cocument.createElement('ul');
-
-
-                    fetch(myJson)
-                    .then((Response) => Response.json())
-                    .then((data) => {
-                        for (const promocao of data.promocao){
-                            let newElement
-                        }
-                    })
-                    .catch(console.erro);
-                    
-                    /*  Lógica para abrir a página
-                        cardPromo[i].children[0].href = newPage;   
-                        window.open(cardPromo[i].children[0].href, '_blank'); 
-                    */
-                })
 
             }
 
@@ -92,4 +72,59 @@ function checkDate(){
         }
         
     }
+}
+
+function display(){
+    cardPromo[i].children[0].addEventListener('click', () => {
+                    
+    let newDiv = document.createElement('div');
+    let newUl = document.createElement('ul');
+    let newLi = new Array[specialDate.length];
+
+    newUl.style = ` display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        row-gap: 20px;
+        column-gap: 20px;
+        margin: 100px 100px 100px 250px ;
+        
+        justify-content: center;`;
+
+    
+    parentHead.append(newDiv);
+    parentHead.children[1].append(newUl);
+
+    
+    for (let j=0; j<newLi.length;j++){
+        newLi[j] = document.createElement('li');
+        newLi[j].style = ` margin: auto 50px 150px 50px;
+                    padding: auto 10% auto 10%;
+
+                    max-width: 380px;
+                    height: 380px;
+
+                    text-align: center;
+
+                    border: 1px solid rgb(239, 128, 1);
+                    background-color: rgb(180, 96, 0);
+                    border-radius: 40px;`;
+        parentHead.children[1].children[0].append(newLi[j]);
+    }
+    
+
+    fetch(myJson)
+    .then((Response) => Response.json())
+    .then((data) => {
+        for (const promocao of data.promocao){
+            //let newElement
+        }
+    })
+    .catch(console.erro);
+    
+    //  Lógica para abrir a página
+        
+    cardPromo[i].children[0].href = `{newPage}`;   
+    window.open(cardPromo[i].children[0].href, '_blank'); 
+    
+    });
 }
