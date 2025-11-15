@@ -35,10 +35,10 @@ async function display(){
     parentHead.children[0].append(newUl);
 
  
-    const myJson = new Request("./promocao.json");
+    //const myJson = new Request("./promocao.json");
 
     try{
-        const response = await fetch (myJson);
+        const response = await fetch ('./promocao.json');
 
         if(!response.ok){
             throw new Error(`Response status: ${response.status}`);
