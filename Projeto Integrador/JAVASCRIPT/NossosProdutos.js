@@ -1,52 +1,51 @@
 
 const masculineCostume = [
-    {name: 'fm1', image: './img/Costume/FM1.png'},
-    {name: 'fm2', image: './img/Costume/FM2.png'},
-    {name: 'fm3', image: './img/Costume/FM3.png'},
-    {name: 'fm4', image: './img/Costume/FM4.png'},
-    {name: 'fm5', image: './img/Costume/FM5.png'}
+    {name: 'fm1', image: './img/Costume/male/FM1.png'},
+    {name: 'fm2', image: './img/Costume/male/FM2.png'},
+    {name: 'fm3', image: './img/Costume/male/FM3.png'},
+    {name: 'fm4', image: './img/Costume/male/FM4.png'},
+    {name: 'fm5', image: './img/Costume/male/FM5.png'}
 ];
 
 const feminineCostume = [
-    {name: 'ff1', image: './img/FM!.png'},
-    {name: 'ff2', image: './img/FM2.png'},
-    {name: 'ff3', image: './img/FM3.png'},
-    {name: 'ff4', image: './img/FM4.png'},
-    {name: 'ff5', image: './img/FM5.png'}
+    {name: 'ff1', image: './img/Costume/female/FF1.png'},
+    {name: 'ff2', image: './img/Costume/female/FF2.png'},
+    {name: 'ff3', image: './img/Costume/female/FF3.png'},
+    {name: 'ff4', image: './img/Costume/female/FF4.png'},
+    {name: 'ff5', image: './img/Costume/female/FF5.png'}
     
 ];
 
 const infantCostume = [
-    {name: 'fi1', image: './img/FM!.png'},
-    {name: 'fi2', image: './img/FM2.png'},
-    {name: 'fi3', image: './img/FM3.png'},
-    {name: 'fi4', image: './img/FM4.png'},
-    {name: 'fi5', image: './img/FM5.png'}
+    {name: 'fi1', image: './img/Costume/infant/FI1.png'},
+    {name: 'fi2', image: './img/Costume/infant/FI2.png'},
+    {name: 'fi3', image: './img/Costume/infant/FI3.png'},
+    {name: 'fi4', image: './img/Costume/infant/FI4.png'},
+    {name: 'fi5', image: './img/Costume/infant/FI5.png'}
 
 ];
 
 const mascotCostume = [
-    {name: 'fmt1', image: './img/FM!.png'},
-    {name: 'fmt2', image: './img/FM2.png'},
-    {name: 'fmt3', image: './img/FM3.png'},
-    {name: 'fmt4', image: './img/FM4.png'},
-    {name: 'fmt5', image: './img/FM5.png'}
+    {name: 'fmt1', image: './img/Costume/mascot/FMT1.png'},
+    {name: 'fmt2', image: './img/Costume/mascot/FMT2.png'},
+    {name: 'fmt3', image: './img/Costume/mascot/FMT3.png'},
+    {name: 'fmt4', image: './img/Costume/mascot/FMT4.png'},
+    {name: 'fmt5', image: './img/Costume/mascot/FMT5.png'}
 ];
 
 const comemorativeCostume = [
-    {name: 'fc1', image: './img/FM!.png'},
-    {name: 'fc2', image: './img/FM2.png'},
-    {name: 'fc3', image: './img/FM3.png'},
-    {name: 'fc4', image: './img/FM4.png'},
-    {name: 'fc5', image: './img/FM5.png'}
+    {name: 'fc2', image: './img/Costume/comemorative/FC2.png'},
+    {name: 'fc4', image: './img/Costume/comemorative/FC4.png'},
+    {name: 'fc3', image: './img/Costume/comemorative/FC3.png'},
+    {name: 'fc1', image: './img/Costume/comemorative/FC1.png'},
 ];
 
 const acessoryCostume = [
-    {name: 'fa1', image: './img/FM!.png'},
-    {name: 'fa2', image: './img/FM2.png'},
-    {name: 'fa3', image: './img/FM3.png'},
-    {name: 'fa4', image: './img/FM4.png'},
-    {name: 'fa5', image: './img/FM5.png'}
+    {name: 'fa1', image: './img/Costume/accessory/FA1.png'},
+    {name: 'fa2', image: './img/Costume/accessory/FA2.png'},
+    {name: 'fa3', image: './img/Costume/accessory/FA3.png'},
+    {name: 'fa4', image: './img/Costume/accessory/FA4.png'},
+    {name: 'fa5', image: './img/Costume/accessory/FA5.png'}
 ];
 
 // Objeto de animação
@@ -57,7 +56,7 @@ const animateImage = [
 
 
 // todas as listas de produto
-const myProducts = [masculineCostume, feminineCostume, infantCostume, comemorativeCostume, acessoryCostume];
+const myProducts = [masculineCostume, feminineCostume, infantCostume, mascotCostume, comemorativeCostume, acessoryCostume];
 
 
 // atribui o elemento com ID carroussel
@@ -83,7 +82,7 @@ let target = 0;
 
 
 // configura a posição inicial e velocidade
-let pos = 160;
+let pos = 200;
 let speed = 2;
 
 // tempo
@@ -110,7 +109,8 @@ window.addEventListener('load', () => {
     if (imgElementDone){ 
         
         menager();
-        ChangeImage(liChild);
+        //ChangeImage(liChild);
+        NewChangeImage(liChild, myProducts);
 
     }
 })
@@ -131,7 +131,7 @@ function loadImagesFunc(){
         let imgElement = document.createElement('img');
         let liPara = liChild[i].children;
 
-        console.log(liPara);
+        //console.log(liPara);
         imgElement.textContent = "Nova imagem";
         imgElement.style.width = "150px";
         imgElement.style.height = "250px";
@@ -163,7 +163,7 @@ function menager(){
     vez++;
 
     if (myTimeOut && myAnim) {
-        console.log("Timeout cleared!");
+        //console.log("Timeout cleared!");
         clearTimeout(myTimeOut);
         myTimeOut = null;
         clearInterval(myAnim);
@@ -183,7 +183,7 @@ function menager(){
     else timer = 2000;
 
     myTimeOut = setTimeout(function() {
-            console.log("timeout: " +  timer);
+            //console.log("timeout: " +  timer);
             if (animated == true) menager();
     }, timer);
     
@@ -207,7 +207,7 @@ function animate(destiny, final, imgElement){
 
         } else if (pos < target*final && destinated == true){
             //console.log("Pos: " + pos + " target; " + target*final);
-            pos = 160;
+            pos = 200;
             loop = -2;
             animated = true;
             destinated = false;
@@ -215,7 +215,8 @@ function animate(destiny, final, imgElement){
             vez = 0;
             //console.log("final e finalized " + finalized );
             
-            ChangeImage(imgElement);
+            //ChangeImage(imgElement);
+            NewChangeImage(imgElement);
             clearInterval(myAnim);
         }
         else {
@@ -227,24 +228,21 @@ function animate(destiny, final, imgElement){
 }
 
 
-function ChangeImage(imgConteiner){
-    //console.log("chamou");
-   
+function NewChangeImage(imgConteiner){
+    
+    // pega todos os elementos <li>
     for (let i = 0; i < imgConteiner.length; i++){
+        // Se o link estiver vazio, ele é preenchido
         if (imgConteiner[i].children[0].getAttribute('src') == ""){
-        //console.log("entrou");
-            imgConteiner[i].children[0].src = myProducts[0].at(0).image;
+            imgConteiner[i].children[0].src = myProducts[i].at(0).image;
         }
-        else{
-            //console.log("segunda parte");
-            if (imgCount >= 4) imgCount = -1;
+        else{ // quando preenchido ele vem pra cá, loopando entre as imagens
+            if (imgCount >= myProducts[i].length-1) imgCount = -1; // passou do limite ele volta pra inicio
             imgCount++;
-            imgConteiner[i].children[0].src  = myProducts[0].at(imgCount).image;
-            
-            
+            imgConteiner[i].children[0].src  = myProducts[i].at(imgCount).image;
         }
     }
-    
+
 }
 
 

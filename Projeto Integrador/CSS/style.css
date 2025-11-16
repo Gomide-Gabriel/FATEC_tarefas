@@ -81,9 +81,9 @@ ul li a:hover {
 
     left: -200px;
     width: auto;
-    height: 240px;
+    height: 320px;
     padding: 10px;
-    top: 400px;
+    top: 500px;
 
 }
 
@@ -109,7 +109,7 @@ ul li a:hover {
 #contate-nos {
     position: fixed;
     right: 0;
-    bottom: 40%;
+    bottom: 2 5%;
     margin-top: -140px;
     z-index: 1;
 }
