@@ -81,16 +81,16 @@ ul li a:hover {
 
     left: -200px;
     width: auto;
-    height: 320px;
+    height: 260px;
     padding: 10px;
-    top: 500px;
+    top: 360px;
 
 }
 
 
 #fimPrincipal {
     height: 500px;
-    background-color: rgb(37, 37, 221);
+    background-color: #2e4594;
     width: 100vw;
 
     height: 300px;
@@ -101,7 +101,7 @@ ul li a:hover {
 
 
 #fimPrincipal h2 {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 /*  */
@@ -109,7 +109,7 @@ ul li a:hover {
 #contate-nos {
     position: fixed;
     right: 0;
-    bottom: 2 5%;
+    bottom: 40%;
     margin-top: -140px;
     z-index: 1;
 }
