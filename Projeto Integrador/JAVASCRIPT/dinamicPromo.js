@@ -21,13 +21,21 @@ async function display(){
     let newUl = document.createElement('ul');
     let newLi = new Array(6);
 
+    newDiv.style = ` display: flex;
+        flex-flow: column wrap;
+        margin: auto;
+
+        align-items: center;
+        color: rgb(240, 240, 240);`;
+
     newUl.style = ` display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(2, 1fr);
         row-gap: 20px;
         column-gap: 20px;
-        margin: 100px 100px 100px 250px ;
+        margin: 100px 100px 100px 100px ;
         
+        justify-self: center;
         justify-content: center;`;
 
     
@@ -54,7 +62,7 @@ async function display(){
             let imgElement = document.createElement('img');
 
             imgElement.style.width = "190px";
-            imgElement.style.height = "300px";
+            imgElement.style.height = "280px";
             imgElement.style.position = "relative";
             imgElement.src = promocao[i].image;
 
@@ -73,7 +81,7 @@ async function display(){
                         list-style-type: none`;
 
             
-            newLi[i].innerHTML = `<p> ${promocao[i].nome} <p>`;
+            newLi[i].innerHTML = `<p style="padding: 10px 10px 10xp 10px;"> ${promocao[i].nome} <p>`;
             newLi[i].append(imgElement);
 
             parentHead.children[0].children[0].append(newLi[i]);
