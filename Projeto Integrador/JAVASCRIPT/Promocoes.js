@@ -26,7 +26,7 @@ const parentHead = document.getElementsByTagName('head');
 
 
 //let currentMonth = new Date(); -- programação dinamica ao todo
-let currentMonth = new Date("2025-10-31"); // <- emulando a data do halloween
+let currentMonth = new Date("2025-5-13"); // <- emulando a data do halloween
 let currentDay = new Date();
 
 window.addEventListener("load", () => {
@@ -54,8 +54,11 @@ function checkDate(){
 
     for (let i=0; i < specialDate.length; i++){
         
+       // console.log(currentMonth.getDate()+1);
+
         // checa se a data atual é a mesma que consta no specialdate        
-        if ((currentMonth.getMonth()+1) == specialDate[i].month && (currentMonth.getDate()+1) == specialDate[i].fday) {
+        if ((currentMonth.getMonth()+1) == specialDate[i].month && (currentMonth.getDate()) == specialDate[i].fday) {
+            
 
             // se for verdade checa pra ver qual dos cards tem a categoria da data
             if (specialDate[i].categoria == cardPromo[i].getAttribute('data-my-variable')){
@@ -67,6 +70,7 @@ function checkDate(){
 
         }
         else { // se estiver fora da data fecha a promoção
+            //console.log("OO");
             cardPromo[i].children[0].children[0].src = image[0].url;
             cardPromo[i].children[0].href = "";
         }

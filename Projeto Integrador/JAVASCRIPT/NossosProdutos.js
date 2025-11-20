@@ -66,7 +66,7 @@ const carrossel = document.getElementById('carrossel');
 console.log(carrossel.children);
 const ulCarrossel = carrossel.children;
 // <li> 
-let liChild = [];
+let liElement = [];
 
 
 // Contador para troca de imagem
@@ -107,10 +107,10 @@ window.addEventListener('load', () => {
     loadImagesFunc();
     
     if (imgElementDone){ 
-        
+        console.log("chamou");
         menager();
         //ChangeImage(liChild);
-        NewChangeImage(liChild, myProducts);
+        NewChangeImage(liElement, myProducts);
 
     }
 })
@@ -120,22 +120,29 @@ window.addEventListener('load', () => {
 function loadImagesFunc(){
     
     // atribuindo os <li>
-    liChild = ulCarrossel[0].children;
-    console.log(liChild.length);
+    liElement = ulCarrossel[0].children;
+    console.log(liElement.length);
 
 
-    for (let i = 0; i < liChild.length; i++) {
+    for (let i = 0; i < liElement.length; i++) {
+
+        //liChild[i].style = `background-color: white`;
+
+        // Conteiner da imag
+        let = contElement = document.createElement('div');
+        contElement.style = `background-color: #efefef; width: 100%; height: auto; position: relative;`;
+
 
         // CRIANDO O ELEMENTO <img>
-
         let imgElement = document.createElement('img');
-        let liPara = liChild[i].children;
+        let liPara = liElement[i].children;
 
         //console.log(liPara);
-        imgElement.textContent = "Nova imagem";
+        imgElement.textContent = "Nova imagem"; 
         imgElement.style.width = "150px";
         imgElement.style.height = "250px";
         imgElement.style.position = "relative";
+        //imgElement.style = `background-color: white`;
         imgElement.src = "";
 
         // Referencias de distância para animação
@@ -143,10 +150,13 @@ function loadImagesFunc(){
         target = width*-1;
 
         
-        if (liChild[i]) {
+        if (liElement[i]) {
             
             // atribui o elemento <img> antes do <p>
-            liChild[i].insertBefore(liChild[i].appendChild(imgElement), liPara[0]);
+            //liElement[i].insertBefore(liElement[i].appendChild(imgElement), liPara[0]);
+            contElement.appendChild(imgElement);
+            liElement[i].insertBefore(liElement[i].appendChild(contElement), liPara[0]);
+        
 
         }
         else console.error("Não foi achado");
@@ -175,7 +185,7 @@ function menager(){
     loop+=2;
     
     myAnim = setInterval(function()  {
-        if (animated == false) animate(loop, 1.5, liChild);
+        if (animated == false) animate(loop, 1.5, liElement);
     },
     10);   
 
@@ -190,11 +200,11 @@ function menager(){
 }
 
 function animate(destiny, final, imgElement){            
-    
+    //console.log("fora");
     for (let i = 0; i < imgElement.length; i++){
 
         if (pos == null) {
-            pos = imgElement[i].children[0].style.right;
+            pos = imgElement[i].children[0].children[0].style.right;
             //console.log("nulo");
         }
 
@@ -222,7 +232,7 @@ function animate(destiny, final, imgElement){
         else {
             //console.log("animando");
             pos-= speed;
-            imgElement[i].children[0].style.right = pos + 'px';
+            imgElement[i].children[0].children[0].style.right = pos + 'px';
         }
     }
 }
@@ -233,13 +243,13 @@ function NewChangeImage(imgConteiner){
     // pega todos os elementos <li>
     for (let i = 0; i < imgConteiner.length; i++){
         // Se o link estiver vazio, ele é preenchido
-        if (imgConteiner[i].children[0].getAttribute('src') == ""){
-            imgConteiner[i].children[0].src = myProducts[i].at(0).image;
+        if (imgConteiner[i].children[0].children[0].getAttribute('src') == ""){
+            imgConteiner[i].children[0].children[0].src = myProducts[i].at(0).image;
         }
         else{ // quando preenchido ele vem pra cá, loopando entre as imagens
             if (imgCount >= myProducts[i].length-1) imgCount = -1; // passou do limite ele volta pra inicio
             imgCount++;
-            imgConteiner[i].children[0].src  = myProducts[i].at(imgCount).image;
+            imgConteiner[i].children[0].children[0].src  = myProducts[i].at(imgCount).image;
         }
     }
 

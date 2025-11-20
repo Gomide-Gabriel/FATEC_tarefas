@@ -2,121 +2,264 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const category = urlParams.get('diPromo');
 
-const parentHead = document.getElementById('head');
+// o elemento pai
+const parentHead = document.getElementById('main');
 
+// elementos que serão filhos do pai
+let elements = [
+    {newDiv: document.createElement('div')},
+    {title: document.createElement('section')},
+    {section1: document.createElement('section')},
+    {newUi: document.createElement('ul')},
+    {section2: document.createElement('section')},
+    {newLi: []}
+];
 
-window.addEventListener('load', () => {
-    
-    //console.log(parentHead);
-    display();
-    
-})
+// Json
+let result = "";
 
+// PARTE DA ANIMACAO
+let imgCount = 0;
+let imgElementDone = false;
 
+// referencias para o destino e caminho
+let width = 0;
+let target = 0;
 
-async function display(){
-    console.log("AA");
-                    
-    let newDiv = document.createElement('div');
-    let newUl = document.createElement('ul');
-    let newLi = new Array(6);
+// configura a posição inicial e velocidade
+let pos = 200;
+let speed = 2;
 
-    newDiv.style = ` display: flex;
-        flex-flow: column wrap;
-        margin: auto;
+// tempo
+let timer = 2000;
 
-        align-items: center;
-        color: rgb(240, 240, 240);`;
+// variaveis que cuidam da animation
+let myTimeOut = null;
+let myAnim = null;
+let loop = -2;
+let animated = false;
+let finalized = false;
+let destinated = false;
 
-    newUl.style = ` display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        row-gap: 20px;
-        column-gap: 20px;
-        margin: 100px 100px 100px 100px ;
+// contador de loop
+let vez = 0;
+
+// Flag para controlar se a animação está rodando
+let isAnimating = false;
+
+window.addEventListener('load', async () => {
+    try {
+        // Aguarda a criação dos elementos
+        await display2();
         
-        justify-self: center;
-        justify-content: center;`;
+        // Carrega as imagens iniciais
+        NewChangeImage(elements[elements.length - 1]);
+        
+        // Pequeno delay para garantir que tudo está renderizado
+        setTimeout(() => {
+            menager();
+        }, 100);
+        
+    } catch (error) {
+        console.error("Erro ao carregar:", error);
+    }
+});
 
-    
-    parentHead.append(newDiv);
-    parentHead.children[0].append(newUl);
+async function display2() {
+    // <main> 
+    parentHead.style = `display: block; justify-content: center; justify-self: center`;
 
+    // <div> filha da main
+    elements[0].newDiv.style = `display: flex; flex-flow: column wrap; margin: auto; align-items: center; color: rgb(240, 240, 240);`;
+
+    // title <section>
+    elements[1].title.style = `margin-top: 30px; border-radius: 30px; border: 2px solid rgb(177, 45, 45); background-color: rgb(177, 45, 45); padding-left: 10px; padding-right: 10px;`;
  
-    //const myJson = new Request("./promocao.json");
+    // section1 <section>
+    elements[2].section1.style = `border-radius: 30px; border: 2px solid rgb(177, 45, 45); background-color: rgb(177, 45, 45); margin-top: 100px; margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
 
-    try{
-        const response = await fetch ('./promocao.json');
+    // lista <ul>
+    elements[3].newUi.style = `display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; row-gap: 8px; column-gap: 200px; margin: 100px 100px 100px 100px; margin-top: 60px; justify-self: center; justify-content: center;`;
 
-        if(!response.ok){
+    // <section> ultima filha
+    elements[4].section2.style = `border-radius: 30px; border: 2px solid rgb(177, 45, 45); background-color: rgb(177, 45, 45);  margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
+    
+    try {
+        const response = await fetch('./promocao.json');
+         
+        if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        const result = await response.json();
-        console.log(result.promocoes[category]);
+        result = await response.json();
+       
+        // ATRIBUI BACKGROUND IMAGE
+        if (result.promocoes[category][0].background != "") {
+            parentHead.style.height = "100vw";
+            parentHead.style.width = "100vw";
+            parentHead.style.backgroundRepeat = 'no-repeat';
+            parentHead.style.backgroundSize = 'cover';
+            parentHead.style.backgroundPosition = 'center center';
+            parentHead.style.backgroundImage = `url(${result.promocoes[category][0].background})`;
+        }
+
+        elements[1].title.innerHTML = `<h3>${result.promocoes[category][0].title}</h3>`;
+        elements[2].section1.innerHTML = `<h4>${result.promocoes[category][0].section1}</h4>`;
+        elements[4].section2.innerHTML = `<h3 style="text-align: center;">${result.promocoes[category][0].title}</h3><h4>${result.promocoes[category][0].section2}</h4>`;
         
-        for(let i=0; i<result.promocoes[category].length; i++){
-            let promocao = result.promocoes[category];
+        // se não houver filhos na main
+        if (parentHead.children.length == 0) {
+            parentHead.append(elements[0].newDiv);
+            parentHead.children[0].append(elements[1].title, elements[2].section1, elements[3].newUi, elements[4].section2);
+        }
 
-            //console.log(promocao[i]);
+        // Cria os 2 elementos da lista
+        for (let i = 0; i < 2; i++) {
+            let liElement = document.createElement('li');
+            liElement.style = `margin: auto 50px 150px 50px; padding: 5%; max-width: 380px; height: 300px; text-align: center; border: 1px solid rgb(239, 128, 1); background-color: rgb(180, 96, 0); border-radius: 40px; list-style-type: none`;
+            
+            let contElement = document.createElement('div');
+            contElement.style = `background-color: #efefef; display: flex; width: 100%; height: auto; position: relative; border: 1px solid rgb(239, 128, 1); border-radius: 20px; justify-content: center;  overflow: hidden;`;
+            
             let imgElement = document.createElement('img');
-
+            imgElement.style.padding = "10px";
             imgElement.style.width = "190px";
             imgElement.style.height = "280px";
             imgElement.style.position = "relative";
-            imgElement.src = promocao[i].image;
+            imgElement.src = "";
 
-            newLi[i] = document.createElement('li');
-            newLi[i].style = ` margin: auto 50px 150px 50px;
-                        padding: auto 10% auto 10%;
+            contElement.append(imgElement);
+            liElement.append(contElement);
+            parentHead.children[0].children[2].append(liElement);
 
-                        max-width: 380px;
-                        height: 380px;
+            // Referencias de distância para animação
+            width = parseFloat(imgElement.style.getPropertyValue('width'));
+            target = width * -1;
 
-                        text-align: center;
-
-                        border: 1px solid rgb(239, 128, 1);
-                        background-color: rgb(180, 96, 0);
-                        border-radius: 40px;
-                        list-style-type: none`;
-
-            
-            newLi[i].innerHTML = `<p style="padding: 10px 10px 10xp 10px;"> ${promocao[i].nome} <p>`;
-            newLi[i].append(imgElement);
-
-            parentHead.children[0].children[0].append(newLi[i]);
-                
-            //parentHead.children[0].children[0].children[i] = 
+            elements[elements.length - 1].newLi.push(liElement);
         }
 
-        for (let promocao of result.promocao[category]){
-            
-        }
-        
+        imgElementDone = true;
+        return true;
 
-    }catch(error) {
+    } catch (error) {
         console.error(error.message);
+        throw error;
     }
-    
-    //  Lógica para abrir a página
-
-
 }
 
+// Cuida do gerenciamento das animações
+function menager() {
+    // Impede múltiplas chamadas simultâneas
+    if (isAnimating) {
+        console.log("Animação já está rodando, aguardando...");
+        return;
+    }
 
-/* await fetch(myJson)
-    .then(response => {
-        if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    vez++;
+    
+    // Limpa timers anteriores
+    if (myTimeOut) {
+        clearTimeout(myTimeOut);
+        myTimeOut = null;
+    }
+    
+    if (myAnim) {
+        clearInterval(myAnim);
+        myAnim = null;
+    }
+
+    animated = false;
+    loop += 2;
+    isAnimating = true;
+    
+    // Usa setInterval para a animação contínua
+    myAnim = setInterval(function() {
+        if (animated == false) {
+            animate(loop, 1.5, elements[elements.length - 1]);
+        } else {
+            // Quando a animação termina, para o interval
+            clearInterval(myAnim);
+            myAnim = null;
+            isAnimating = false;
         }
-         return response.json();
-    })
-    .then((data) => {
+    }, 10);
 
-        console.log(data.halloween);
+    // Atualiza os timers para as chamadas 
+    if (vez == 2) timer = 1180;
+    else timer = 2000;
 
-        for (const promocao of data.promocao.halloween){
-            //let newElement
+    // Agenda o próximo ciclo
+    myTimeOut = setTimeout(function() {
+        if (animated == true) {
+            menager();
         }
-    })
-    .catch(console.erro); */
+    }, timer);
+}
+
+function animate(destiny, final, imgConteiner) {
+    for (let i = 0; i < imgConteiner.newLi.length; i++) {
+        
+        // se a pos for vazia
+        if (pos == null) {
+            pos = imgConteiner.newLi[i].children[0].children[0].style.right;
+        }
+
+        if (pos < target * destiny && destinated == false) {
+            // Primeira localização (meio do elemento)
+            console.log("chegou no meio");
+            animated = true;
+            destinated = true;
+            
+        } else if (pos < target * final && destinated == true) {
+            // Ponto final do destino
+            console.log("chegou no final");
+            pos = 200;
+            loop = -2;
+            animated = true;
+            destinated = false;
+            finalized = true;
+            vez = 0;
+            
+            // Troca as imagens
+            NewChangeImage(imgConteiner);
+            
+        } else {
+            // Executa a animação
+            pos -= speed;
+            imgConteiner.newLi[i].children[0].children[0].style.right = pos + 'px';
+        }
+    }
+}
+
+function NewChangeImage(imgConteiner) {
+    // Se o link estiver vazio, carrega a primeira imagem
+    if (imgConteiner.newLi[0].children[0].children[0].getAttribute('src') == "" || 
+        imgConteiner.newLi[1].children[0].children[0].getAttribute('src') == "") {
+        
+        console.log("Carregando imagens iniciais");
+        imgConteiner.newLi[0].children[0].children[0].src = result.promocoes[category][0].images[0];
+        imgConteiner.newLi[1].children[0].children[0].src = result.promocoes[category][0].images2[0];
+        
+    } else {
+        // Loop pelas imagens
+        const maxImages = Math.max(
+            result.promocoes[category][0].images.length,
+            result.promocoes[category][0].images2.length
+        );
+        
+        if (imgCount >= maxImages - 1) {
+            imgCount = -1;
+        }
+        imgCount++;
+        
+        // Atualiza com as novas imagens
+        if (imgCount < result.promocoes[category][0].images.length) {
+            imgConteiner.newLi[0].children[0].children[0].src = result.promocoes[category][0].images[imgCount];
+        }
+        
+        if (imgCount < result.promocoes[category][0].images2.length) {
+            imgConteiner.newLi[1].children[0].children[0].src = result.promocoes[category][0].images2[imgCount];
+        }
+    }
+}
