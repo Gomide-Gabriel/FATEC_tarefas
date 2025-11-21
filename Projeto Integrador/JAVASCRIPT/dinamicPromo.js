@@ -85,7 +85,8 @@ async function display2() {
         // ATRIBUI BACKGROUND IMAGE
         if (result.promocoes[category][0].background != "") {
             //parentHead.style.height = "100vw";
-            parentHead.style.width = "100vw";
+            parentHead.style.width = "100%";
+            parentHead.style.marginLeft = "-2px";
             parentHead.style.backgroundRepeat = 'no-repeat';
             parentHead.style.backgroundSize = 'cover';
             parentHead.style.backgroundPosition = 'center center';
