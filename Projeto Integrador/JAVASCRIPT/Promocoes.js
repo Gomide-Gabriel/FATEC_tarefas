@@ -26,7 +26,7 @@ const parentHead = document.getElementsByTagName('head');
 
 
 //let currentMonth = new Date(); -- programação dinamica ao todo
-let currentMonth = new Date("2025-5-13"); // <- emulando a data do halloween
+let currentMonth = new Date("2025-10-31"); // <- emulando a data do halloween
 let currentDay = new Date();
 
 window.addEventListener("load", () => {
@@ -39,25 +39,19 @@ window.addEventListener("load", () => {
     checkDate();
 })
 
-function teste(){
-    let jsonData = JSON.stringify({
-        category: cardPromo.getAttribute('data-my-variable')
-    });
-
-    //console.log(jsonData.category);
-
-}
 
 
 function checkDate(){
     
+    console.log(currentMonth.getDate()+1);
+    console.log(currentMonth.getMonth()+1);
 
     for (let i=0; i < specialDate.length; i++){
         
-       // console.log(currentMonth.getDate()+1);
+        
 
         // checa se a data atual é a mesma que consta no specialdate        
-        if ((currentMonth.getMonth()+1) == specialDate[i].month && (currentMonth.getDate()) == specialDate[i].fday) {
+        if ((currentMonth.getMonth()+1) == specialDate[i].month && (currentMonth.getDate()+1) == specialDate[i].fday) {
             
 
             // se for verdade checa pra ver qual dos cards tem a categoria da data
@@ -70,7 +64,7 @@ function checkDate(){
 
         }
         else { // se estiver fora da data fecha a promoção
-            //console.log("OO");
+            
             cardPromo[i].children[0].children[0].src = image[0].url;
             cardPromo[i].children[0].href = "";
         }
@@ -78,57 +72,3 @@ function checkDate(){
     }
 }
 
-function display(){
-    cardPromo[i].children[0].addEventListener('click', () => {
-                    
-    let newDiv = document.createElement('div');
-    let newUl = document.createElement('ul');
-    let newLi = new Array[specialDate.length];
-
-    newUl.style = ` display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        row-gap: 20px;
-        column-gap: 20px;
-        margin: 100px 100px 100px 250px ;
-        
-        justify-content: center;`;
-
-    
-    parentHead.append(newDiv);
-    parentHead.children[1].append(newUl);
-
-    
-    for (let j=0; j<newLi.length;j++){
-        newLi[j] = document.createElement('li');
-        newLi[j].style = ` margin: auto 50px 150px 50px;
-                    padding: auto 10% auto 10%;
-
-                    max-width: 380px;
-                    height: 380px;
-
-                    text-align: center;
-
-                    border: 1px solid rgb(239, 128, 1);
-                    background-color: rgb(180, 96, 0);
-                    border-radius: 40px;`;
-        parentHead.children[1].children[0].append(newLi[j]);
-    }
-    
-
-    fetch(myJson)
-    .then((Response) => Response.json())
-    .then((data) => {
-        for (const promocao of data.promocao){
-            //let newElement
-        }
-    })
-    .catch(console.erro);
-    
-    //  Lógica para abrir a página
-        
-    cardPromo[i].children[0].href = `{newPage}`;   
-    window.open(cardPromo[i].children[0].href, '_blank'); 
-    
-    });
-}

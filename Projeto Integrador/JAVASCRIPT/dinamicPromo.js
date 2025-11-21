@@ -72,17 +72,6 @@ async function display2() {
     // <div> filha da main
     elements[0].newDiv.style = `display: flex; flex-flow: column wrap; margin: auto; align-items: center; color: rgb(240, 240, 240);`;
 
-    // title <section>
-    elements[1].title.style = `margin-top: 30px; border-radius: 30px; border: 2px solid rgb(177, 45, 45); background-color: rgb(177, 45, 45); padding-left: 10px; padding-right: 10px;`;
- 
-    // section1 <section>
-    elements[2].section1.style = `border-radius: 30px; border: 2px solid rgb(177, 45, 45); background-color: rgb(177, 45, 45); margin-top: 100px; margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
-
-    // lista <ul>
-    elements[3].newUi.style = `display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; row-gap: 8px; column-gap: 200px; margin: 100px 100px 100px 100px; margin-top: 60px; justify-self: center; justify-content: center;`;
-
-    // <section> ultima filha
-    elements[4].section2.style = `border-radius: 30px; border: 2px solid rgb(177, 45, 45); background-color: rgb(177, 45, 45);  margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
     
     try {
         const response = await fetch('./promocao.json');
@@ -95,13 +84,30 @@ async function display2() {
        
         // ATRIBUI BACKGROUND IMAGE
         if (result.promocoes[category][0].background != "") {
-            parentHead.style.height = "100vw";
+            //parentHead.style.height = "100vw";
             parentHead.style.width = "100vw";
             parentHead.style.backgroundRepeat = 'no-repeat';
             parentHead.style.backgroundSize = 'cover';
             parentHead.style.backgroundPosition = 'center center';
             parentHead.style.backgroundImage = `url(${result.promocoes[category][0].background})`;
         }
+
+        console.log(result.promocoes[category][0].color);
+
+        // title <section>
+        elements[1].title.style = `margin-top: 30px; border-radius: 30px; border: 2px solid ${result.promocoes[category][0].color}; background-color:${result.promocoes[category][0].color}; padding-left: 10px; padding-right: 10px;`;
+    
+        // section1 <section>
+        elements[2].section1.style = `border-radius: 30px; border: 2px solid ${result.promocoes[category][0].color}; background-color:${result.promocoes[category][0].color}; margin-top: 100px; margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
+
+        // lista <ul>
+        elements[3].newUi.style = `display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; row-gap: 8px; column-gap: 200px; margin: 100px 100px 100px 100px; margin-top: 60px; justify-self: center; justify-content: center;`;
+
+        // <section> ultima filha
+        elements[4].section2.style = `border-radius: 30px; border: 2px solid ${result.promocoes[category][0].color}; background-color:${result.promocoes[category][0].color};  margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
+        
+
+
 
         elements[1].title.innerHTML = `<h3>${result.promocoes[category][0].title}</h3>`;
         elements[2].section1.innerHTML = `<h4>${result.promocoes[category][0].section1}</h4>`;
