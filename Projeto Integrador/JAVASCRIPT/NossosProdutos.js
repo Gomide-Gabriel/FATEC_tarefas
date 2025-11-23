@@ -63,7 +63,6 @@ const myProducts = [masculineCostume, feminineCostume, infantCostume, mascotCost
 const carrossel = document.getElementById('carrossel');
 
 // <ul>
-console.log(carrossel.children);
 const ulCarrossel = carrossel.children;
 // <li> 
 let liElement = [];
@@ -102,7 +101,7 @@ let vez = 0;
 
 // Carrega o Script quando a tela carrega
 
-window.addEventListener('load', () => {
+window.addEventListener('load', () => {   
     imgCount = 0;
     loadImagesFunc();
     
@@ -113,8 +112,9 @@ window.addEventListener('load', () => {
         NewChangeImage(liElement, myProducts);
 
     }
-})
 
+    
+})
 
 
 function loadImagesFunc(){

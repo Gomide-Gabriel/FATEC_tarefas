@@ -102,7 +102,7 @@ async function display2() {
         elements[2].section1.style = `border-radius: 30px; border: 2px solid ${result.promocoes[category][0].color}; background-color:${result.promocoes[category][0].color}; margin-top: 100px; margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;
 
         // lista <ul>
-        elements[3].newUi.style = `display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; row-gap: 8px; column-gap: 200px; margin: 100px 100px 100px 100px; margin-top: 60px; justify-self: center; justify-content: center;`;
+        elements[3].newUi.style = `display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; row-gap: 8px; column-gap: 200px; margin: 100px 100px 1px 100px; margin-top: 60px; justify-self: center; justify-content: center;`;
 
         // <section> ultima filha
         elements[4].section2.style = `border-radius: 30px; border: 2px solid ${result.promocoes[category][0].color}; background-color:${result.promocoes[category][0].color};  margin-left: 20%; margin-right: 20%; padding-left: 30px; padding-right: 30px;`;

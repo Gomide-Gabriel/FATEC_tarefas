@@ -26,7 +26,7 @@ const parentHead = document.getElementsByTagName('head');
 
 
 //let currentMonth = new Date(); -- programação dinamica ao todo
-let currentMonth = new Date("2025-5-13"); // <- emulando a data do halloween
+let currentMonth = new Date("2025-10-31"); // <- emulando a data do halloween
 let currentDay = new Date();
 
 window.addEventListener("load", () => {
