@@ -401,7 +401,7 @@ ul li a:hover {
 
 
 #pr-item ul li section{
-    overflow: auto;
+    overflow: hidden; 
 
 }
 
