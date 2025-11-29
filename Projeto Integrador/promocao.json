@@ -8,6 +8,14 @@
                 "title": "Halloween",
                 "section1": "É a hora do Terror na Fantasias & Mascotes! No dia 31 de outubro, ganhe 15% OFF* no aluguel de qualquer fantasia temática (Dona Morte, Dark Souls, It a Coisa e mais!) ou leve 2 FANTASIAS (Mother Miranda, Vermelha de Sangue E OUTRAS) pelo preço de 1!Corra, porque até o cair da noite é por tempo limitado!",
                 "section2": "Hora do Terror com desconto sô! Acessórios em promoção para sua festa do terror! Pronto para assustar! Pacote Hora do Terror: Acessórios + Fantasia por R$ XXX* 10% OFF em pedidos de grupos (mínimo 5 fantasias).",
+                "definiteImage":[
+                    {
+                        "images": ["./img/Costume/Promocoes/HLW/CH1.png","./img/Costume/Promocoes/HLW/CH2.png","./img/Costume/Promocoes/HLW/CH3.png"]
+                    },
+                    {
+                        "images": ["./img/Costume/Promocoes/HLW/CH4.png","./img/Costume/Promocoes/HLW/CH5.png","./img/Costume/Promocoes/HLW/CH6.png"]
+                    }
+                ],
                 "images": ["./img/Costume/Promocoes/HLW/CH1.png","./img/Costume/Promocoes/HLW/CH2.png","./img/Costume/Promocoes/HLW/CH3.png"],
                 "images2": ["./img/Costume/Promocoes/HLW/CH4.png","./img/Costume/Promocoes/HLW/CH5.png","./img/Costume/Promocoes/HLW/CH6.png"],
                 "color": "rgba(44, 90, 215)"
@@ -19,6 +27,14 @@
                 "title": "Festa Junina",
                 "section1": "É tempo de São João na Fantasias & Mascotes! De 14 a 30 de junho, ganhe 15% OFF* no aluguel de qualquer fantasia temática (caipira, quadrilheiro, fogueirinha e mais!) ou leve 2 MASCOTES (bode e galo de briga E OUTRAS) pelo preço de 1!Corra, porque até o friozinho do arraiá é por tempo limitado!",
                 "section2": "São João com desconto sô! Acessórios em promoção para sua quadrilha! Looks tradicionais e personalizados aui! Pacote Casal Caipira: Chapéu + Fantasia por R$ XX* 10% OFF em pedidos de grupos (mínimo 5 fantasias).",
+                "definiteImage": [
+                    {
+                        "images": ["./img/Costume/Promocoes/JNN/CJ1.png","./img/Costume/Promocoes/JNN/CJ2.png","./img/Costume/Promocoes/JNN/CJ3.png","./img/Costume/Promocoes/JNN/CJ4.png","./img/Costume/Promocoes/JNN/CJ5.png"]
+                    },
+                    {
+                        "images": ["./img/Costume/Promocoes/JNN/CJ6.png","./img/Costume/Promocoes/JNN/CJ7.png","./img/Costume/Promocoes/JNN/CJ8.png","./img/Costume/Promocoes/JNN/CJ9.png"]
+                    }
+                ],
                 "images": ["./img/Costume/Promocoes/JNN/CJ1.png","./img/Costume/Promocoes/JNN/CJ2.png","./img/Costume/Promocoes/JNN/CJ3.png","./img/Costume/Promocoes/JNN/CJ4.png","./img/Costume/Promocoes/JNN/CJ5.png"],
                 "images2": ["./img/Costume/Promocoes/JNN/CJ6.png","./img/Costume/Promocoes/JNN/CJ7.png","./img/Costume/Promocoes/JNN/CJ8.png","./img/Costume/Promocoes/JNN/CJ9.png"],
                 "color": " rgb(177, 45, 45)"

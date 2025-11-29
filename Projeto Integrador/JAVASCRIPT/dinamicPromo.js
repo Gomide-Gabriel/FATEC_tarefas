@@ -19,6 +19,11 @@ let elements = [
 let result = "";
 
 // PARTE DA ANIMACAO
+const imgIteration = new Array(2);
+imgIteration[0] = 0;
+imgIteration[1] = 0;
+
+
 let imgCount = 0;
 let imgElementDone = false;
 
@@ -53,7 +58,7 @@ window.addEventListener('load', async () => {
         await display2();
         
         // Carrega as imagens iniciais
-        NewChangeImage(elements[elements.length - 1]);
+        NewChangeImage2(elements[elements.length - 1]);
         
         // Pequeno delay para garantir que tudo está renderizado
         setTimeout(() => {
@@ -94,6 +99,8 @@ async function display2() {
         }
 
         console.log(result.promocoes[category][0].color);
+        console.log(result.promocoes[category][0].definiteImage[0].images.length);
+        //console.log(result.promocoes[category][0].teste[1].images.length)
 
         // title <section>
         elements[1].title.style = `margin-top: 30px; border-radius: 30px; border: 2px solid ${result.promocoes[category][0].color}; background-color:${result.promocoes[category][0].color}; padding-left: 10px; padding-right: 10px;`;
@@ -229,7 +236,7 @@ function animate(destiny, final, imgConteiner) {
             vez = 0;
             
             // Troca as imagens
-            NewChangeImage(imgConteiner);
+            NewChangeImage2(imgConteiner);
             
         } else {
             // Executa a animação
@@ -268,5 +275,37 @@ function NewChangeImage(imgConteiner) {
         if (imgCount < result.promocoes[category][0].images2.length) {
             imgConteiner.newLi[1].children[0].children[0].src = result.promocoes[category][0].images2[imgCount];
         }
+
+        
+        
     }
 }
+
+function NewChangeImage2(imgConteiner) {
+
+    // pega todos os elementos ImagesConteiners <li>
+    // Se o link estiver vazio, ele é preenchido
+    
+    //console.log(imgConteiner.newLi.length);
+    for (let i = 0; i < imgConteiner.newLi.length; i++) {
+
+        // ATRIBUIÇÃO INICIAL quando os srcs das imagens estão vazios
+        if (imgConteiner.newLi[i].children[0].children[0].getAttribute('src') == "") {
+            console.log("AVE");
+            imgConteiner.newLi[i].children[0].children[0].src = result.promocoes[category][0].definiteImage[i].images[0]; 
+        }
+        else { 
+            // ATUALIZAÇÃO no novo ciclo eles já estarão preenchidos
+            
+            if (imgIteration[i] >=  result.promocoes[category][0].definiteImage[i].images.length-1) imgIteration[i] = -1; // passou do limite ele volta pra inicio
+
+            imgIteration[i]++;
+            imgConteiner.newLi[i].children[0].children[0].src = result.promocoes[category][0].definiteImage[i].images[imgIteration[i]];
+        }
+        
+    }
+
+}
+
+
+
