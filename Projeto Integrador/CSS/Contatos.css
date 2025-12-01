@@ -1,0 +1,40 @@
+
+
+/* Contatos página */
+
+#cont-1 {
+    
+    margin: auto;
+    margin-top: 20px;
+    width: 140px;
+    text-align: center;
+    color: white;
+}
+
+#contatos div{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    color: white;
+}
+
+#contatos div section{
+    margin: 100px 50px 150px 50px;
+    padding: 1%;
+
+    border: 1px solid  rgba(44, 90, 215, 0.568);
+    border-radius: 40px;
+    background-color:  rgba(44, 90, 215, 0.568);
+
+}
+
+#cont-img{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    
+}
+
+#cont-img img{
+    width: 100%;
+}
