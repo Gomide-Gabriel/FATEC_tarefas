@@ -522,4 +522,15 @@ ul li a:hover {
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
+    #logo {
+        position: absolute;
+        z-index: 1;
+
+        left: 20px;
+        width: auto;
+        height: 260px;
+        padding: 10px;
+        top: 60%;
+
+    }
 }
