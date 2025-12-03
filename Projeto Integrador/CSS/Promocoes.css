@@ -4,6 +4,10 @@
 #promocaopg {
     background: #fcca00;
     background: linear-gradient(0deg, rgba(252, 202, 0, 1) 0%, rgba(222, 11, 11, 1) 87%);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -15,7 +19,7 @@
     align-items: center;
     color: rgb(240, 240, 240);
 }
-
+  
 
 
 .roundbox3 {
@@ -24,26 +28,9 @@
     border-radius: 40px 40px 40px 40px;
 }
 
-#prinfo-1{
-    text-align: center;
-    margin-left: auto ;
-    margin-right: auto ;
-    margin-top: 20px;
-    max-width: 200px;
-    
-}
-
-#pr-item ul{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    row-gap: 20px;
-    column-gap: 20px;
-    margin: 100px 100px 100px 80px ;
 
 
-    justify-content: center;
-}
+
 
 
 #pr-item ul li{

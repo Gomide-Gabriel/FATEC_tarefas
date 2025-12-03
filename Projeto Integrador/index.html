@@ -7,14 +7,17 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
 
     <div id="menu">
-        
-        <nav class="navBar">
+        <button id="ham" class="ham">
+            <img src="./img/menu-2.svg">
+        </button>
+        <nav id="navBar"  class="navBar">
             <ul>
                 <li class="menu_item">
                     <img src="./img/Symbol/sym4.png">
@@ -25,7 +28,7 @@
                     <h2><a href="SobreNos.html"><u>SOBRE NÓS</u></a></h2>
                 </li>
                 <li class="menu_item">
-                    <img src="./img/Symbol/sym2.png" style="margin-left: 30px;">
+                    <img src="./img/Symbol/sym2.png" >
                     <h2><a href="NossosProdutos.html"><u>NOSSOS PRODUTOS</u></a></h2>
                 </li>
                 <li class="menu_item">
@@ -47,39 +50,26 @@
 
             <!--PARTE DA IMAGEM DO MEIO-->
             
-            <img id="fundo" src="./img/Homeimg.png" >
-            <img id="logo" src="./img/Logo.png">
-
+            <img id="fundo" src="./img/Homeimg.png">
             
         </section>
 
-        <!--ICONE DO WHATSAPP: CONTATE-NOS-->
-        <section id="contate-nos" class="fabs" role="group" aria-label="Floating Action Buttons">
-            <button> 
-                    <a href="https://api.whatsapp.com/send/?phone=5511972327740&text&type=phone_number&app_absent=0">
-                        <img src="img/WhatsApp_icon.png" style="width:48px; height:48px" alt="Contate-nos">
-                    </a>
-                    <u>CONTATE-NOS</u>
-            </buton>
-            
-        </section>
+        <img id="logo" src="./img/Logo.png">
 
 
         <section id="fimPrincipal">
 
-            <h2 style="text-align: right; line-height: 5; padding-left: 60px; padding-right: 10%;">SEMPRE FAZENDO AMIGOS A CADA NEGÓCIO FECHADO!</h2>
+            <h2>SEMPRE FAZENDO AMIGOS A CADA NEGÓCIO FECHADO!</h2>
             
-            <section style="display: flex; flex-direction: row; ">
+            <section  >
 
-                <h2 style="text-align: center; padding-left: 5%; padding-right: 10%;">FANTASIAS & MASCOTES É UMA EMPRESA ESPECIALIZADA NA PRODUÇÃO ARTESANAL DE FANTASIAS E MASCOTES DESDE 2015.  </h2>
+                <h2 >FANTASIAS & MASCOTES É UMA EMPRESA ESPECIALIZADA NA PRODUÇÃO ARTESANAL DE FANTASIAS E MASCOTES DESDE 2015.  </h2>
                 <img src="./img/Symbol/sym2.png" alt="" style="margin-left: 20px;">
             </section>
         </section>
     </div>
 
+    <script type="text/javascript" src="./JAVASCRIPT/MenuResponse.js"></script>
 
 </body>
-
-
-
 </html>
