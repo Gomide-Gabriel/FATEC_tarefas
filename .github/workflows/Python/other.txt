@@ -1,0 +1,8 @@
+list1 = ['João', 'Maria', 'Kleber', 'Caio', 'Sarah']
+list2 = [2350.20, 540.50, 300.00, 830.15, 150.00]
+
+print('LISTA DE CLIENTES - BANCO XXXXXXXX')
+print('Nome ', 'Saldo', sep='  ')
+
+for i in range(len(list1)):
+    print(list1[i], list2[i], sep='  ')

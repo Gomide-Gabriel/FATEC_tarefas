@@ -1,0 +1,115 @@
+
+    Gabriel Gomide de Souza Babo
+
+
+    Exercício teórico das Listas
+ 
+   
+    Q1) Conjunto de elementos, objetos que não seguem uma ordem específica
+   
+    Q2) FIFO - First in First Out, se aplica na fila, o primiro elemento que entrar é o primeiro que sai
+ 
+    Q3) LIFO - Last in First Out, se aplica na pilha, o último que entra é o primeiro a sair
+ 
+    Q4) Listas não se importam com a ordem dos elementos (na sua manipulação), e tem tamanhos fixos.
+        Filas se importam com a ordem de manipulação e não possuem tamanho fixo.
+ 
+    Q5) Listas simples (array):
+            - Prós: criação simples
+            - Con: tamanho limitado
+        Listas encadeadas (dicionário):
+            - Prós: custo de memória e processamento eficientes
+            - Con: conhecimento tem que ser mais avançado
+ 
+    Q6) É uma lista que não possuí nenhuma referência em sua memória, representada por um "= []"
+ 
+    Q7) 1: Operações em máquinas mono-tarefas, a primeira tarefa precisa encerrar para que uma nova começe, seguindo o FIFO
+        2: Em uma impressora, se vários documentos forem enviados, ela começará pelo primeiro enviado
+        3: Em um aplicativo, que tem um conjunto de dados em processamento, ele começará pelo primeiro enviado
+ 
+    Q8) Um conjunto de dados, criados a partir de "= []", pode criar, adicionar e deletar elementos a partir de seu índice
+        É uma ferramenta para organizar e armazenar diversos tipos de de dado, desde palavras, números  ou quaisquer outras informações
+ 
+    Q9) Um dicionário, basicamente, é uma lista com elementos que armazenam 1 ou mais outros elementos, e que esses    
+        elementos possam ser acessados a partir dos elementos principaís, e os elementos secundários através de seus índices ou nomes
+        Se criados sem encadeamento, eles ficam desconexos e soltos pela memória
+ 
+    Q10) Uma lista simples é unidirecinal, a duplamente é bidirecional, adicionando um novo campo como referência ao próximo elemento
+ 
+    Q11) É criado um node next, geralmente no final da lista, faz um sistema de checagem para ver se a lista está vazia, quando não estiver, apontamos um novo dado para o próximo node,
+         e este próximo se torna o elemento atual, esvaziando o node next, repetindo  o ciclo
+ 
+    Q12) Fila de Prioridade: o primeiro elemento não necessariamente será o primeiro ser atendido
+            - Gerenciador de tarefas em sistemas operacinais
+         Fila Circular: itens que foram atendidos e que voltam para o ínicio da fila.
+            - Agendamento de tarefas
+ 
+    Q13)
+         isEmpty - retorna true ou false, dependendo se a lista estiver vazia, se vazia retorna True, se cheia False
+         enqueue - inserir na posição(0) um item
+         dequeue - retirar o último item da lista já que o () está vazio
+         size - retorna o tamanho da lista
+ 
+    Q14) Lista - inserção de elementos acima de seu tamanho, é imutável depois de criado; Mas pode ser inseridos elementos em qualquer posição usando Insert().
+                Pode ser retirado qualquer elemento
+         Fila - tamanho mutável, mas se limita a posições, podendo ser colocado um itém  apenas na primeira posição,
+                usando o enqueue(), e apenas o primeiro item que entrou pode ser retirado dequeue() e desse apenas o próximo assim sucesivamente.
+         Pilha  - tamanho também mutável, mas apenas o último elemento pode ser manipulado, operações envolvem push() e pop()
+         
+ 
+    Q15) Listas indexam espaços na memória que não podem ser mudadadas depois de criadas, mesmo esses espaços estando
+         vazios, eles ficam reservados e não podem ser utilizados. Depois de preenchidos e descartados, seria necessário mudar toda lista
+    
+    Q16) Pop retira o último item de uma lista. Peek está retornando o último item de uma lista, sem remover o ítem.
+
+    Q17) No Call Center, faz mais sentido que a o pedido a ser atendido primeiro, seja o primeiro a ser solicitado. 
+         Em uma pilha de tarefas de um gerenciador, A última tarefa a ser iniciada, tem que ser a primeira a ser finalizada. as tarefas seguem uma hierarquia
+
+    Q18) L[início:final]:
+                - início diz respeito a posição inicial da lista, o index 0
+                - final aponta para posição final da lista, len[lista]-1
+         L[início:final:passo]
+                - inicio e final segue as mesmas instruções de acima 
+                - passo é o intervalo, o número de posições que serão saltadas, e pegando fatias nesses intervalos,
+                - juntando os 3 é possível determinar um certo começo e fim, e a solicitação deste em um intervalo.
+                Ex: 
+                    L = [1,2,4,5,6] 
+                    L[2:-1] > 2, 5; 
+                    começando do 2 e indo até 6, pulando 2 elementos a partir do 2, satisfazendo apenas o 5, depois do 6 não há mais números
+
+    Q19)
+        Fila -
+            Arrays 
+                A[n]  constrói a array
+                enqueue() adiciona na lista
+                dequeue() desadiciona da lista
+                isEmpty()
+                size() verifica o tamanho
+            Encadeadas 
+                referencia do inicio e do final da fila.
+                inicio = 0
+                final = -1
+        
+        pilha -
+            Arrays 
+                Push() adiciona elemento no topo da lista
+                Pop() retira o elemento do topo da lista
+                isEmpty() checa se está vazio
+                Peek() informa qual o elemento no topo da lista
+            
+            Encadeadas 
+                Push()
+                Pop() 
+                isEmpty()
+    
+    Q20)
+
+        filas e pilhas são casos especiais de listas, listas é a forma base do colecionamento de elementos e suas operações na computação,
+        só a partir das listas que podemos desenvolver filas e pilhas 
+
+
+
+
+          print(f'atual: {node_atual.dado} \n'\
+                f'anterior: {node_atual.anterior} \n' \
+                    f'proximo: {node_atual.proximo}')

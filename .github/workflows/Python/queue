@@ -1,0 +1,63 @@
+class ListaEncadeada:
+    
+    def __init__(self):
+        self.fim = None
+        self.inicio = None
+        self.counter = 0
+        
+    class Node:
+
+        def __init__(self, dado, proximo = None):
+            self.dado = dado
+            self.proximo = proximo
+          
+
+    def adicionar(self, dado):
+        self.dado = dado
+        novo_node = self.Node(self.dado)
+
+        if (self.esta_vazia()):
+            self.inicio = novo_node
+            self.fim = novo_node
+            self.counter += 1
+        else:
+            self.fim.proximo = novo_node
+            self.fim = novo_node
+            self.counter +=1
+
+
+    def remover_inicio(self):
+        print('\n Remoção \n')
+        self.inicio = self.inicio.proximo # Segundo elemento se tornará o primeiro
+        self.inicio.proximo = self.fim # Terceiro elemento se tornará o segundo
+        self.fim = None
+        self.counter -= 1
+
+    def exibir(self):
+
+        i = 0
+        lastNode = self.inicio
+        while i < self.counter:
+           
+            print(lastNode.dado)
+            lastNode = (lastNode.proximo)
+            i += 1
+        pass
+
+    def esta_vazia(self):
+        
+        return self.inicio == None
+    
+list = ListaEncadeada()
+
+list.adicionar('Contato:\nNome - Gabriel | Telefone - 119999999 ')
+list.adicionar('Contato:\nNome - Daniel | Telefone - 119888888 ')
+list.adicionar('Contato:\nNome - Miguel | Telefone - 119777777 ')
+
+list.exibir()
+
+
+list.remover_inicio()
+
+list.exibir()
+            
