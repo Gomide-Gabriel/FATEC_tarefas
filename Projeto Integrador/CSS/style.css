@@ -241,12 +241,12 @@ ul li a:hover {
         position: absolute;
         z-index: 1;
 
-        left: px;
+
         width: auto;
         height: 100px;
         padding: 10px;
-        top: 140%;
-        left: 60%;
+        top: 130%;
+        left: 50%;
 
     }
 
@@ -417,7 +417,7 @@ ul li a:hover {
         width: auto;
         height: 260px;
         padding: 10px;
-        top: 85%;
+        top: 70%;
 
     }
 
@@ -505,9 +505,32 @@ ul li a:hover {
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
 
+    #logo {
+        position: absolute;
+        z-index: 1;
+
+        left: 20px;
+        width: auto;
+        height: 260px;
+        padding: 10px;
+        top: 60%;
+
+    }
+
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 
+    #logo {
+        position: absolute;
+        z-index: 1;
+
+        left: 20px;
+        width: auto;
+        height: 260px;
+        padding: 10px;
+        top: 70%;
+
+    }
 }
