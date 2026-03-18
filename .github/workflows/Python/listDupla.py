@@ -113,6 +113,10 @@ list.exibir_frente_pra_tras()
 list.remover_inicio()
 list.exibir_frente_pra_tras()
 
+list.remover_fim()
+
+list.exibir_frente_pra_tras()
+
 #list.exibir_tras_pra_frente()
 
 
