@@ -78,9 +78,8 @@ class ListaDupla:
         node_atual = self.inicio
         i = 0
         
-
         print("\nFrente pra tras :\n ")
-        while i < self.counter:
+        while i < self.counter and node_atual != None:
             print(node_atual.dado, i, end=' \n ')
             node_atual = node_atual.proximo
             i +=1
@@ -91,7 +90,7 @@ class ListaDupla:
         i = 0
 
         print("\nTras pra frente:\n ")
-        while i < self.counter:
+        while i < self.counter and node_atual != None:
             print(node_atual.dado, end=' \n ')
             node_atual = node_atual.anterior
             i +=1
@@ -108,7 +107,13 @@ list = ListaDupla()
 list.adicionar_inicio('Contato:\nNome - Gabriel | Telefone - 119999999 | email -  gabriel@gmail.com ')
 list.adicionar_inicio('Contato:\nNome - Daniel | Telefone - 119888888 | email -  daniel@gmail.com')
 list.adicionar_inicio('Contato:\nNome - Miguel | Telefone - 119777777 | email -  miguel@gmail.com ')
+list.adicionar_fim('Contato:\nNome - Rafael | Telefone - 119666666 | email -  rafael@gmail.com ')
 
 list.exibir_frente_pra_tras()
-list.exibir_tras_pra_frente()
+list.remover_inicio()
+list.exibir_frente_pra_tras()
+
+#list.exibir_tras_pra_frente()
+
+
 
