@@ -4,7 +4,7 @@ n = len(list)
 for i in len(n):
     maior = i
     for x in range(maior+1, n):
-        if x > maior:
+        if list[i] > list[X]:
             novo_maior = x
             antigo_maior = maior
             maior = novo_maior
