@@ -6,5 +6,6 @@ for i in len(n):
     for x in range(maior+1, n):
         if x > maior:
             novo_maior = x
-            maior = 
+            antigo_maior = maior
+            maior = novo_maior
 
