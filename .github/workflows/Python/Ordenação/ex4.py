@@ -13,6 +13,6 @@ for i in range(n):
             lista[menor] = novo_menor
             lista[j] = antigo_menor
 
-            trocas +=1
+            trocas +=2
 
 print('Lista: ', lista, '\nNúmero de trocas: ', trocas)
