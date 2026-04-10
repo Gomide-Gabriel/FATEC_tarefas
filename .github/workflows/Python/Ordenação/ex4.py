@@ -1,3 +1,6 @@
+# Selection
+
+
 lista = [9,4,8,5,3,2,7,1]
 n = len(lista)
 trocas = 0
