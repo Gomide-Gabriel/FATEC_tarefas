@@ -5,9 +5,8 @@ antigo_menor = None
 for i in range(n):
     menor = i
     for x in range(menor+1, n):
-        if list[menor] < list[x]:
-            pass
-        elif list[menor] > list[x]:
+        
+        if list[menor] > list[x]:
             novo_menor = list[x]
             antigo_menor = list[menor]
             
