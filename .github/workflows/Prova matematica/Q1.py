@@ -1,3 +1,7 @@
+# 4^n < n! é verdadeiro para todo n > N
+# Escreva um programa para determinar N e depois prove
+# o resultado por indução
+
 import math
 
 def encontrar_N():

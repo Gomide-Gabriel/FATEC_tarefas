@@ -1,3 +1,7 @@
+# 2^n < n^3 é verdadeiro para todo n > N
+# Escreva um programa para determinar N e depois prove
+# o resultado por indução
+
 def encontrar_N():
     n = 1
     while True:
