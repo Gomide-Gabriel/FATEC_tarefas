@@ -5,13 +5,13 @@
 import math
 
 def encontrar_N():
-    n = 1
-    while True:
-        if 4**n < math.factorial(n):
-            return n
-        n += 1
-
-N = encontrar_N()
+    n = 1                             # valor inicial de n
+    while True:                 
+        if 4**n < math.factorial(n):  # verifica o fatorial de n se maior que 4^n
+            return n                  # se SIM encerra o loop
+        n += 1                        # se NÂO soma +1 em n e o processo é repetido
+    
+N = encontrar_N() # valor de n encontrado e armazenado
 print(f"N = {N}")
 print(f"4^{N} = {4**N}")
 print(f"{N}! = {math.factorial(N)}")
