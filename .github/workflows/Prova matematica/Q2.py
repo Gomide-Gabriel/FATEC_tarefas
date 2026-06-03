@@ -6,11 +6,11 @@ def encontrar_N():
     n = 1
     while True:
         # verifica que vale para n e persiste adiante
-        if all(2**m > m**3 for m in range(n, n+6)):
-            return n
-        n += 1
-
-N = encontrar_N()
+        if all(2**m > m**3 for m in range(n, n+6)): # loop interno que verifica se -
+            return n                                # todos os elementos são verdadeiros
+        n += 1                                      # para cada n e seus 5 termos futuros é verificado:
+                                                    # 2^n > n^3 
+N = encontrar_N()                                   # se não, o n é somado em 1 e o processo se repete
 print(f"N = {N}")
 print(f"2^{N} = {2**N}")
 print(f"{N}^3 = {N**3}")
